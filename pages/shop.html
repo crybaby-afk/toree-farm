@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop – Toree Farm & Nursery Ltd</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../images/optimized/logo-icon-640.webp" type="image/webp">
+</head>
+  <body>
+    <!-- Agricultural floating elements -->
+    <div class="agricultural-elements">
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+      <div class="leaf">🌱</div>
+      <div class="leaf">🌾</div>
+    </div>  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <picture>
+          <source srcset="../images/optimized/logo-icon-640.webp" type="image/webp">
+          <img src="../images/optimized/logo-icon-640.jpg" alt="Logo" style="width:50px;height:50px;object-fit:contain">
+        </picture>
+        <div class="nav-logo-text">
+          <span class="name">Toree Farm & Nursery Ltd</span>
+          <span class="tagline">Home of Quality Seedlings</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="dashboard.html">My Account</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div style="display:flex; gap:10px; align-items:center">
+        <a href="cart.html" class="nav-cart-btn">🛒 Cart <span class="cart-badge">0</span></a>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>🌱 Our Seedling Shop</h1>
+      <p>19 premium vegetable varieties — healthy, disease-free, and ready to grow.</p>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span>
+        <span style="color:var(--gold-light)">Shop</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER SECTION -->
+  <section class="filter-section">
+    <div class="container">
+      <div class="filter-layout">
+        <aside class="filter-sidebar">
+          <h3>Filter Products</h3>
+          <div class="search-bar">
+            <span>🔍</span>
+            <input type="text" id="search-input" placeholder="Search seedlings..." oninput="filterProducts()">
+          </div>
+          <div class="filter-group">
+            <h4>🥕 Categories</h4>
+            <button class="filter-btn active" data-cat="all">🌿 All Varieties</button>
+            <button class="filter-btn" data-cat="leafy">🥬 Leafy Vegetables</button>
+            <button class="filter-btn" data-cat="fruit">🍅 Fruit Vegetables</button>
+            <button class="filter-btn" data-cat="brassica">🥦 Brassicas</button>
+            <button class="filter-btn" data-cat="specialty">🌱 Specialty Crops</button>
+          </div>
+          <div class="filter-group">
+            <h4>💰 Price Range</h4>
+            <button class="filter-btn active-price" data-price="all">All Prices</button>
+            <button class="filter-btn" data-price="low">Under KES 3</button>
+            <button class="filter-btn" data-price="mid">KES 3–5</button>
+            <button class="filter-btn" data-price="high">KES 5+</button>
+          </div>
+
+          <!-- Weather Widget -->
+          <div class="weather-widget">
+            <h4>🌤️ Today's Weather</h4>
+            <div class="weather-info">
+              <div class="weather-main">
+                <span class="temp" id="weather-temp">24°C</span>
+                <span class="condition" id="weather-condition">Sunny</span>
+              </div>
+              <div class="weather-details">
+                <span class="humidity" id="weather-humidity">65% Humidity</span>
+                <span class="wind" id="weather-wind">10 km/h Wind</span>
+              </div>
+            </div>
+            <div class="planting-advice" id="planting-advice">
+              <p>🌱 Perfect conditions for transplanting!</p>
+            </div>
+          </div>
+          <div style="margin-top: 20px; padding: 16px; background: var(--green-pale); border-radius: var(--radius-sm);">
+            <p style="font-size: 0.8rem; color: var(--text-mid); line-height: 1.6;">
+              💬 <strong>Need bulk orders?</strong><br>
+              WhatsApp us for special pricing on large quantities.
+            </p>
+            <a href="https://wa.me/254715108351" class="btn btn-whatsapp" style="margin-top:12px; font-size:0.82rem; padding:8px 16px;" target="_blank">💬 Chat Now</a>
+          </div>
+          <div class="crop-calculator" style="margin-top:20px; padding:20px; background:linear-gradient(135deg,#e8f8ed,#d2eccf); border-radius:var(--radius); border:1px solid rgba(45,106,65,.25);">
+            <h4>🌾 Seedling & Fertilizer Calculator</h4>
+            <p style="font-size:0.85rem; color:#2d5a27; margin-bottom:12px;">Enter area and select crop to estimate seed requirement.</p>
+            <label for="calc-area" style="font-weight:700; color:#1b4332;">Area (m²)</label>
+            <input id="calc-area" type="number" min="1" step="0.1" placeholder="e.g. 100" style="width:100%;padding:10px;margin:8px 0 12px;border:1px solid #2d6a4f;border-radius:8px;">
+            <label for="calc-crop" style="font-weight:700; color:#1b4332;">Crop</label>
+            <select id="calc-crop" style="width:100%;padding:10px;margin:8px 0 12px;border:1px solid #2d6a4f;border-radius:8px;">
+              <option value="spinach">Spinach (40 plants / m²)</option>
+              <option value="broccoli">Broccoli (10 plants / m²)</option>
+              <option value="capsicum">Capsicum (8 plants / m²)</option>
+              <option value="cauliflower">Cauliflower (12 plants / m²)</option>
+              <option value="eggplant">Eggplant (7 plants / m²)</option>
+            </select>
+            <label for="calc-density" style="font-weight:700; color:#1b4332;">Planting density (%)</label>
+            <input id="calc-density" type="number" min="50" max="120" value="100" step="1" style="width:100%;padding:10px;margin:8px 0 12px;border:1px solid #2d6a4f;border-radius:8px;">
+              <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;">
+                <input id="calc-area-unit" type="checkbox" />
+                <label for="calc-area-unit" style="font-size:0.85rem;color:#1b4332;">Show in acres (as well)</label>
+              </div>
+
+              <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+                <button type="button" class="btn btn-earth" id="quick-100">100 seedlings</button>
+                <button type="button" class="btn btn-earth" id="quick-250">250 seedlings</button>
+                <button type="button" class="btn btn-earth" id="quick-500">500 seedlings</button>
+              </div>
+
+              <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+                <input id="fertilizer-pack" type="checkbox" />
+                <label for="fertilizer-pack" style="font-size:0.85rem;color:#1b4332;">Add fertilizer starter pack (15% extra)</label>
+              </div>
+            <button id="calculate-btn" class="btn-success" style="width:100%;margin-top:10px;">Calculate</button>
+            <div id="calc-result" style="margin-top:12px; color:#2d5a27; font-weight:700;"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ORDER BANNER -->
+  <section class="quick-order-banner">
+    <div class="container">
+      <h3>🚀 Need Seedlings Urgently?</h3>
+      <p>Call or WhatsApp us for same-day pickup and express delivery options within Kericho County.</p>
+      <div class="quick-actions">
+        <a href="tel:+254715108351" class="btn btn-primary">📞 Call Now</a>
+        <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20need%20seedlings%20urgently." class="btn btn-whatsapp" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="products-section">
+    <div class="container">
+      <div class="shop-header">
+        <p id="product-count">Showing all 19 products</p>
+        <select class="sort-select" id="sort-select">
+          <option value="default">Sort: Default</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A–Z</option>
+        </select>
+      </div>
+      <div class="products-grid" id="shop-products"></div>
+    </div>
+  </section>
+
+  <!-- BUY CTA SECTION -->
+  <section class="buy-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Grow Your Garden? 🌱</h2>
+        <p>Order now and get your seedlings delivered fresh within 24 hours.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/254715108351" class="btn btn-primary btn-large" target="_blank">💬 Order via WhatsApp</a>
+          <a href="cart.html" class="btn btn-gold btn-large">🛒 View Cart</a>
+        </div>
+        <div class="cta-features">
+          <div class="feature">
+            <span class="icon">🚚</span>
+            <span>Free Delivery</span>
+          </div>
+          <div class="feature">
+            <span class="icon">⚡</span>
+            <span>24hr Dispatch</span>
+          </div>
+          <div class="feature">
+            <span class="icon">💚</span>
+            <span>100% Healthy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-img"><img id="modal-img" src="" alt="Product image"></div>
+      <div class="modal-body">
+        <span id="modal-category" class="product-category" style="position:static; display:inline-block; margin-bottom:12px;"></span>
+        <h2 id="modal-name"></h2>
+        <div class="modal-price" id="modal-price"></div>
+        <p id="modal-desc" style="color: var(--text-mid); margin-bottom: 8px;"></p>
+        <div class="modal-info-grid">
+          <div class="modal-info-item"><label>Growth Period</label><p id="modal-growth"></p></div>
+          <div class="modal-info-item"><label>Spacing</label><p id="modal-spacing"></p></div>
+          <div class="modal-info-item"><label>Watering</label><p id="modal-watering"></p></div>
+          <div class="modal-info-item"><label>Availability</label><p id="modal-stock" style="color: var(--green-mid)"></p></div>
+        </div>
+        <div class="modal-actions">
+          <div class="modal-qty">
+            <button class="qty-btn" onclick="modalChangeQty(-1)">−</button>
+            <input type="number" id="modal-qty-input" class="qty-input" value="1" min="1" max="10000" oninput="modalUpdateQty(this.value)">
+            <button class="qty-btn" onclick="modalChangeQty(1)">+</button>
+          </div>
+          <button class="btn btn-primary" onclick="modalAddToCart()">🛒 Add to Cart</button>
+          <a href="https://wa.me/254715108351" class="btn btn-whatsapp" target="_blank">💬 Order via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">
+            <picture>
+              <source srcset="../images/optimized/logo-icon-640.webp" type="image/webp">
+              <img src="../images/optimized/logo-icon-640.jpg" alt="Logo" style="width:40px;height:40px;object-fit:contain">
+            </picture>
+            <div class="nav-logo-text">
+              <span class="name">Toree Farm & Nursery Ltd</span>
+              <span class="tagline" style="color:var(--gold)">Home of Quality Seedlings</span>
+            </div>
+          </a>
+          <p>Premium vegetable seedlings grown with care in Litein Town.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" class="social-link" target="_blank">📘</a>
+            <a href="https://wa.me/254715108351" class="social-link" target="_blank">💬</a>
+            <a href="mailto:torefarmnurserylimited@gmail.com" class="social-link">📧</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop Now</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#" onclick="filterByCategory('leafy')">Leafy Vegetables</a></li>
+            <li><a href="#" onclick="filterByCategory('fruit')">Fruit Vegetables</a></li>
+            <li><a href="#" onclick="filterByCategory('brassica')">Brassicas</a></li>
+            <li><a href="#" onclick="filterByCategory('specialty')">Specialty Crops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><span class="icon">📍</span><span>Litein Town, Behind AIC Litein Hospital</span></div>
+          <div class="footer-contact-item"><span class="icon">📞</span><a href="tel:+254715108351">+254 715 108 351</a></div>
+          <div class="footer-contact-item"><span class="icon">🕐</span><span>Mon–Sat: 7:00am – 6:00pm</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Toree Farm & Nursery Limited. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    let currentFilter = 'all';
+    let currentSearch = '';
+    let currentSort = 'default';
+    let modalQty = 1;
+    let modalProductId = null;
+
+    function getFilteredProducts() {
+      let products = [...PRODUCTS];
+      if (currentFilter !== 'all') products = products.filter(p => p.category === currentFilter);
+      if (currentSearch) products = products.filter(p => p.name.toLowerCase().includes(currentSearch.toLowerCase()));
+      if (currentSort === 'price-asc') products.sort((a,b) => a.price - b.price);
+      else if (currentSort === 'price-desc') products.sort((a,b) => b.price - a.price);
+      else if (currentSort === 'name-asc') products.sort((a,b) => a.name.localeCompare(b.name));
+      return products;
+    }
+
+    function renderShop() {
+      const products = getFilteredProducts();
+      const grid = document.getElementById('shop-products');
+      const count = document.getElementById('product-count');
+      count.textContent = `Showing ${products.length} product${products.length !== 1 ? 's' : ''}`;
+      if (products.length === 0) {
+        grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:60px; color:var(--text-light)">
+          <div style="font-size:3rem; margin-bottom:16px">🔍</div>
+          <h3>No products found</h3>
+          <p>Try adjusting your search or filter.</p>
+        </div>`;
+        return;
+      }
+      grid.innerHTML = products.map(p => renderProductCard(p, true)).join('');
+      initScrollAnimations();
+    }
+
+    function filterByCategory(cat) {
+      currentFilter = cat;
+      document.querySelectorAll('.filter-btn[data-cat]').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+      renderShop();
+      window.scrollTo({ top: 300, behavior: 'smooth' });
+    }
+
+    function openModal(id) {
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      modalProductId = id;
+      modalQty = 1;
+      document.getElementById('modal-name').textContent = p.name;
+      document.getElementById('modal-price').textContent = `KES ${p.price.toFixed(2)} per seedling`;
+      document.getElementById('modal-desc').textContent = p.description;
+      document.getElementById('modal-growth').textContent = p.growth;
+      document.getElementById('modal-spacing').textContent = p.spacing;
+      document.getElementById('modal-watering').textContent = p.watering;
+      document.getElementById('modal-stock').textContent = p.stock;
+      document.getElementById('modal-category').textContent = p.category;
+      document.getElementById('modal-qty-display').textContent = 1;
+      const img = document.getElementById('modal-img');
+      img.src = `../images/optimized/${p.img}-1024.jpg`;
+      img.alt = p.name;
+      document.getElementById('product-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // Accessibility: focus trap inside modal and focus close button
+      const modal = document.getElementById('product-modal');
+      const modalDialog = modal.querySelector('.modal');
+      const closeBtn = modal.querySelector('.modal-close');
+      if (closeBtn) closeBtn.focus();
+      if (typeof _enableFocusTrap === 'function') _enableFocusTrap(modalDialog);
+    }
+
+    function closeModal() {
+      document.getElementById('product-modal').classList.remove('open');
+      document.body.style.overflow = '';
+      if (typeof _disableFocusTrap === 'function') _disableFocusTrap();
+    }
+
+    function modalChangeQty(d) {
+      modalQty = Math.max(1, modalQty + d);
+      document.getElementById('modal-qty-display').textContent = modalQty;
+    }
+
+    function modalAddToCart() {
+      addToCart(modalProductId, modalQty);
+      closeModal();
+    }
+
+    // Event listeners
+    document.querySelectorAll('.filter-btn[data-cat]').forEach(btn => {
+      btn.addEventListener('click', () => filterByCategory(btn.dataset.cat));
+    });
+
+    document.getElementById('search-input').addEventListener('input', e => {
+      currentSearch = e.target.value;
+      renderShop();
+    });
+
+    document.getElementById('sort-select').addEventListener('change', e => {
+      currentSort = e.target.value;
+      renderShop();
+    });
+
+    document.getElementById('product-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('product-modal')) closeModal();
+    });
+
+    async function initializeShop() {
+      await loadProducts();
+      renderShop();
+    }
+    initializeShop();
+  </script>
+</body>
+</html>

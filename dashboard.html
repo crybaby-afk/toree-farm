@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account - Toree Farm & Nursery Ltd</title>
+  <meta name="description" content="Manage your account, view order history, and track deliveries with Toree Farm & Nursery Ltd.">
+  <meta name="theme-color" content="#4a7c59">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Toree Farm">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/optimized/logo-icon-640.webp" type="image/webp">
+</head>
+<body class="dashboard-page">
+  <!-- Agricultural floating elements -->
+  <div class="agricultural-elements">
+    <div class="leaf">🍃</div>
+    <div class="leaf">🌿</div>
+    <div class="leaf">🌱</div>
+    <div class="leaf">🌾</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/optimized/logo-640.webp" alt="Toree Farm Logo" class="logo-img">
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="dashboard.html" class="active">My Account</a>
+        <a href="cart.html" class="cart-link">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- DASHBOARD HERO -->
+  <section class="dashboard-hero">
+    <div class="container">
+      <h1>Welcome to Your Dashboard</h1>
+      <p>Manage your orders, preferences, and agricultural journey with Toree Farm</p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD CONTENT -->
+  <section class="dashboard-content">
+    <div class="container">
+      <div class="dashboard-grid">
+        <!-- Profile Section -->
+        <div class="dashboard-card profile-card">
+          <div class="card-header">
+            <h3>👤 Profile Information</h3>
+          </div>
+          <div class="card-content">
+            <div class="profile-info">
+              <div class="profile-avatar">
+                <span>👨‍🌾</span>
+              </div>
+              <div class="profile-details">
+                <h4>John Farmer</h4>
+                <p>john.farmer@email.com</p>
+                <p>📍 Kericho, Kenya</p>
+              </div>
+            </div>
+            <button class="btn-secondary edit-profile-btn">Edit Profile</button>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="dashboard-card stats-card">
+          <div class="card-header">
+            <h3>📊 Quick Stats</h3>
+          </div>
+          <div class="card-content">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Total Orders</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Active Orders</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">4.8</div>
+                <div class="stat-label">Avg Rating</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Farm Size (acres)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="dashboard-card orders-card">
+          <div class="card-header">
+            <h3>📦 Recent Orders</h3>
+            <a href="#" class="view-all">View All</a>
+          </div>
+          <div class="card-content">
+            <div class="orders-list">
+              <div class="order-item">
+                <div class="order-info">
+                  <h4>Premium Broccoli Seedlings</h4>
+                  <p>Order #TF2024001 • March 20, 2024</p>
+                  <span class="order-status status-delivered">Delivered</span>
+                </div>
+                <div class="order-amount">KSh 2,400</div>
+              </div>
+              <div class="order-item">
+                <div class="order-info">
+                  <h4>Mixed Vegetable Pack</h4>
+                  <p>Order #TF2024002 • March 18, 2024</p>
+                  <span class="order-status status-shipped">Shipped</span>
+                </div>
+                <div class="order-amount">KSh 3,600</div>
+              </div>
+              <div class="order-item">
+                <div class="order-info">
+                  <h4>Spinach Seedlings</h4>
+                  <p>Order #TF2024003 • March 15, 2024</p>
+                  <span class="order-status status-processing">Processing</span>
+                </div>
+                <div class="order-amount">KSh 1,800</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Growing Tips -->
+        <div class="dashboard-card tips-card">
+          <div class="card-header">
+            <h3>🌱 Personalized Growing Tips</h3>
+          </div>
+          <div class="card-content">
+            <div class="tip-item">
+              <div class="tip-icon">🌤️</div>
+              <div class="tip-content">
+                <h4>Weather Alert</h4>
+                <p>Heavy rains expected tomorrow. Consider delaying transplanting for 2-3 days.</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <div class="tip-icon">🌾</div>
+              <div class="tip-content">
+                <h4>Broccoli Care</h4>
+                <p>Your broccoli seedlings are ready for hardening off. Start with 2-3 hours of outdoor exposure.</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <div class="tip-icon">🐛</div>
+              <div class="tip-content">
+                <h4>Pest Prevention</h4>
+                <p>Monitor for aphids on your spinach. Consider neem oil treatment if spotted.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wishlist -->
+        <div class="dashboard-card wishlist-card">
+          <div class="card-header">
+            <h3>❤️ Wishlist</h3>
+            <a href="#" class="view-all">View All</a>
+          </div>
+          <div class="card-content">
+            <div class="wishlist-grid">
+              <div class="wishlist-item">
+                <img src="images/optimized/product-cauliflower-640.webp" alt="Cauliflower" loading="lazy">
+                <h4>Cauliflower Seedlings</h4>
+                <p>KSh 180/pack</p>
+                <button class="btn-primary add-to-cart-btn">Add to Cart</button>
+              </div>
+              <div class="wishlist-item">
+                <img src="images/optimized/capsicum hoho-640.webp" alt="Capsicum" loading="lazy">
+                <h4>Capsicum Hoho</h4>
+                <p>KSh 220/pack</p>
+                <button class="btn-primary add-to-cart-btn">Add to Cart</button>
+              </div>
+              <div class="wishlist-item">
+                <img src="images/optimized/eggplant-640.webp" alt="Eggplant" loading="lazy">
+                <h4>Eggplant Seedlings</h4>
+                <p>KSh 160/pack</p>
+                <button class="btn-primary add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Farm Analytics -->
+        <div class="dashboard-card analytics-card">
+          <div class="card-header">
+            <h3>📈 Farm Analytics</h3>
+          </div>
+          <div class="card-content">
+            <div class="analytics-chart">
+              <h4>Monthly Spending Trend</h4>
+              <div class="chart-placeholder">
+                <div class="chart-bar" style="height: 60%">Mar</div>
+                <div class="chart-bar" style="height: 80%">Feb</div>
+                <div class="chart-bar" style="height: 40%">Jan</div>
+                <div class="chart-bar" style="height: 90%">Dec</div>
+              </div>
+            </div>
+            <div class="analytics-metrics">
+              <div class="metric">
+                <span class="metric-value">KSh 8,200</span>
+                <span class="metric-label">This Month</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">+15%</span>
+                <span class="metric-label">vs Last Month</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support & Help -->
+        <div class="dashboard-card support-card">
+          <div class="card-header">
+            <h3>🆘 Support & Help</h3>
+          </div>
+          <div class="card-content">
+            <div class="support-options">
+              <a href="contact.html" class="support-link">
+                <span class="support-icon">📞</span>
+                <div>
+                  <h4>Contact Support</h4>
+                  <p>Get help with orders & farming advice</p>
+                </div>
+              </a>
+              <a href="blog.html" class="support-link">
+                <span class="support-icon">📚</span>
+                <div>
+                  <h4>Growing Guides</h4>
+                  <p>Expert tips & tutorials</p>
+                </div>
+              </a>
+              <a href="#" class="support-link">
+                <span class="support-icon">🚚</span>
+                <div>
+                  <h4>Delivery Tracking</h4>
+                  <p>Track your current orders</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Toree Farm & Nursery Ltd</h3>
+          <p>Your trusted partner for premium vegetable seedlings and agricultural excellence in Kericho, Kenya.</p>
+          <div class="social-links">
+            <a href="#" aria-label="WhatsApp">📱 WhatsApp</a>
+            <a href="#" aria-label="Facebook">📘 Facebook</a>
+            <a href="#" aria-label="Instagram">📷 Instagram</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Our Products</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Growing Guides</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>📍 Litein Town, Kericho, Kenya</p>
+          <p>📞 +254 712 345 678</p>
+          <p>✉️ info@toreefarm.com</p>
+          <p>🕒 Mon-Sat: 8AM-6PM</p>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li>Premium Seedlings</li>
+            <li>Agricultural Consulting</li>
+            <li>Farm Supplies</li>
+            <li>Growing Guides</li>
+            <li>Delivery Services</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Toree Farm & Nursery Ltd. All rights reserved. | Designed for agricultural excellence.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

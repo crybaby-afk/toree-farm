@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toree Farm & Nursery Ltd – Premium Vegetable Seedlings</title>
+  <meta name="description" content="Premium vegetable seedlings for high-yield farming. Based in Litein Town, Kenya. Order via WhatsApp.">
+  <meta name="theme-color" content="#4a7c59">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Toree Farm">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/optimized/logo-icon-640.webp" type="image/webp">
+</head>
+  <body>
+    <!-- Agricultural floating elements -->
+    <div class="agricultural-elements">
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+      <div class="leaf">🌱</div>
+      <div class="leaf">🌾</div>
+    </div>  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <picture>
+          <source srcset="images/optimized/logo-icon-640.webp" type="image/webp">
+          <img src="images/optimized/logo-icon-640.jpg" alt="Toree Farm & Nursery Ltd Logo" style="width:50px;height:50px;object-fit:contain">
+        </picture>
+        <div class="nav-logo-text">
+          <span class="name">Toree Farm & Nursery Ltd</span>
+          <span class="tagline">Home of Quality Seedlings</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/about.html">About Us</a></li>
+        <li><a href="pages/shop.html">Shop</a></li>
+        <li><a href="pages/gallery.html">Gallery</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+      <div style="display:flex; gap:10px; align-items:center">
+        <a href="pages/cart.html" class="nav-cart-btn">
+          🛒 Cart
+          <span class="cart-badge">0</span>
+        </a>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container" style="padding-top: 80px;">
+      <div class="hero-content" data-animate="fade-scale" data-animate-delay="0.05">
+        <div class="hero-badge">🌱 Litein Town, Kenya</div>
+        <h1>Premium Vegetable<br><span>Seedlings</span> for<br>High-Yield Farming</h1>
+        <p>We grow strong, healthy, disease-free vegetable seedlings ready for transplanting. Trusted by farmers across the region.</p>
+        <div class="hero-buttons">
+          <a href="pages/shop.html" class="btn btn-gold">🛒 Shop Now</a>
+          <a href="https://wa.me/254715108351" class="btn btn-outline" target="_blank">📞 WhatsApp Us</a>
+        </div>
+      </div>
+      <div class="quick-nav" data-animate="fade-scale" data-animate-delay="0.08">
+        <a href="#featured">Featured</a>
+        <a href="#pickup">Pick of the Day</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+      </div>
+      <!-- decorative SVG blob -->
+      <svg class="accent-blob spin" width="420" height="420" viewBox="0 0 420 420" style="right:-120px;top:-40px;position:absolute;z-index:0;" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="g1" x1="0%" x2="100%" y1="0%" y2="100%"><stop stop-color="var(--accent-1)" offset="0%"/><stop stop-color="var(--accent-2)" offset="100%"/></linearGradient></defs>
+        <circle cx="200" cy="200" r="160" fill="url(#g1)" />
+      </svg>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">14+</span><span class="label">Varieties</span></div>
+        <div class="hero-stat"><span class="num">500K+</span><span class="label">Seedlings Ready</span></div>
+        <div class="hero-stat"><span class="num">100%</span><span class="label">Disease-Free</span></div>
+        <div class="hero-stat"><span class="num">KES 2</span><span class="label">Starting Price</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="featured" id="featured">
+    <div class="container">
+      <div class="section-header" data-animate="fade-scale" data-animate-delay="0.06">
+        <h2 class="section-title">Featured Seedlings</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">A selection of our most popular varieties — fresh, vigorous, and ready to grow.</p>
+        <div class="section-pedestal">
+          <div class="pedestal-stat">
+            <span class="stat-num">95%</span>
+            <span class="stat-label">Germination Rate</span>
+          </div>
+          <div class="pedestal-stat">
+            <span class="stat-num">24hr</span>
+            <span class="stat-label">Fresh Delivery</span>
+          </div>
+          <div class="pedestal-stat">
+            <span class="stat-num">19</span>
+            <span class="stat-label">Premium Varieties</span>
+          </div>
+        </div>
+      </div>
+      <div class="products-grid" id="featured-products"></div>
+      <div class="view-all-wrap">
+        <a href="pages/shop.html" class="btn btn-primary">View All Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof-section">
+    <div class="container">
+      <div class="social-proof-grid">
+        <div class="proof-item">
+          <div class="proof-number">150+</div>
+          <div class="proof-label">Orders This Month</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-number">98%</div>
+          <div class="proof-label">Germination Success</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-number">500+</div>
+          <div class="proof-label">Happy Farmers</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-number">5</div>
+          <div class="proof-label">Years of Excellence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pickup" id="pickup" data-animate="fade-scale" data-animate-delay="0.08">
+    <div class="container">
+      <div id="pickup-card"></div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <div class="section-header" data-animate="fade-scale" data-animate-delay="0.06">
+        <h2 class="section-title">Why Choose Toree Farm?</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Everything we do is designed to give your crops the best possible start.</p>
+        <div class="section-pedestal">
+          <div class="pedestal-stat">
+            <span class="stat-num">15+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="pedestal-stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Disease-Free</span>
+          </div>
+          <div class="pedestal-stat">
+            <span class="stat-num">24/7</span>
+            <span class="stat-label">Customer Support</span>
+          </div>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card" data-animate="fade-scale" data-animate-delay="0.10"><span class="why-icon">🌱</span><h4>Disease-Free Seedlings</h4><p>Every seedling is inspected and hardened before sale.</p></div>
+        <div class="why-card" data-animate="fade-scale" data-animate-delay="0.12"><span class="why-icon">🌞</span><h4>Controlled Conditions</h4><p>Greenhouse-grown under monitored temperature and irrigation.</p></div>
+        <div class="why-card" data-animate="fade-scale" data-animate-delay="0.14"><span class="why-icon">🚚</span><h4>Reliable Supply</h4><p>Consistent availability — place bulk orders with confidence.</p></div>
+        <div class="why-card" data-animate="fade-scale" data-animate-delay="0.16"><span class="why-icon">👨‍🌾</span><h4>Expert Support</h4><p>Professional agricultural guidance included with every order.</p></div>
+        <div class="why-card" data-animate="fade-scale" data-animate-delay="0.18"><span class="why-icon">💰</span><h4>Affordable Pricing</h4><p>Seedlings from as low as KES 2 — competitive market rates.</p></div>
+        <div class="why-card" data-animate="fade-scale" data-animate-delay="0.20"><span class="why-icon">📱</span><h4>Easy WhatsApp Orders</h4><p>Order directly via WhatsApp for quick and simple service.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SNAPSHOT -->
+  <section class="about-snap" id="about">
+    <div class="container">
+      <div class="about-snap-grid">
+        <div class="about-snap-img" data-animate="slide-right" data-animate-delay="0.08">
+          <img src="images/spinach.jpg" alt="Toree Farm Nursery">
+          <div class="img-badge">🏆 #HomeOfQualitySeedlings</div>
+        </div>
+        <div class="about-snap-text" data-animate="slide-left" data-animate-delay="0.12">
+          <h2 class="section-title">Who We Are</h2>
+          <div class="gold-line"></div>
+          <div class="section-pedestal">
+            <div class="pedestal-stat">
+              <span class="stat-num">500+</span>
+              <span class="stat-label">Happy Farmers</span>
+            </div>
+            <div class="pedestal-stat">
+              <span class="stat-num">50+</span>
+              <span class="stat-label">Acres Served</span>
+            </div>
+            <div class="pedestal-stat">
+              <span class="stat-num">4.9★</span>
+              <span class="stat-label">Customer Rating</span>
+            </div>
+          </div>
+          <p>Toree Farm and Nursery Limited specializes exclusively in high-quality vegetable seedlings. Using sustainable nursery practices and strict quality control, we produce strong, well-hardened seedlings ready to thrive in your farm or garden.</p>
+          <p>Located in Litein Town, behind AIC Litein Hospital, we serve both small-scale farmers and large commercial growers across the region with consistent supply and professional service.</p>
+          <a href="pages/about.html" class="btn btn-primary">Learn More About Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="mission-vision" id="mission">
+    <div class="container">
+      <div class="mv-grid">
+        <div class="mv-card" data-animate="slide-left" data-animate-delay="0.06">
+          <div class="mv-icon">🎯</div>
+          <h3>Our Mission</h3>
+          <p>To provide healthy, vigorous, and disease-free vegetable seedlings that empower farmers to achieve higher yields and sustainable agricultural success across Kenya.</p>
+        </div>
+        <div class="mv-card" data-animate="slide-right" data-animate-delay="0.08">
+          <div class="mv-icon">🔭</div>
+          <h3>Our Vision</h3>
+          <p>To become a trusted leader in vegetable seedling production, known for quality, reliability, and professional nursery standards — the go-to supplier in the region.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">What Farmers Say</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Trusted by farmers, growers, and agribusinesses across the region.</p>
+        <div class="section-pedestal">
+          <div class="pedestal-stat">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Satisfaction Rate</span>
+          </div>
+          <div class="pedestal-stat">
+            <span class="stat-num">30+</span>
+            <span class="stat-label">Repeat Customers</span>
+          </div>
+          <div class="pedestal-stat">
+            <span class="stat-num">5★</span>
+            <span class="stat-label">Average Rating</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card" data-animate="slide-left" data-animate-delay="0.08">
+          <div class="testi-quote">"</div>
+          <p>The seedlings were strong and very uniform. My cabbage harvest improved significantly this season. I will definitely order again!</p>
+          <div class="testi-author">
+            <div class="testi-avatar">J</div>
+            <div>
+              <div class="testi-name">John Mutai</div>
+              <div class="testi-role">Local Farmer, Bomet</div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" data-animate="fade-scale" data-animate-delay="0.12">
+          <div class="testi-quote">"</div>
+          <p>Very reliable nursery with healthy and disease-free plants. We've been sourcing our tomato seedlings from Toree for over a year now.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">M</div>
+            <div>
+              <div class="testi-name">Mary Chepkorir</div>
+              <div class="testi-role">Commercial Grower, Litein</div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" data-animate="slide-right" data-animate-delay="0.14">
+          <div class="testi-quote">"</div>
+          <p>Best vegetable seedlings supplier around. Quality is consistent and pricing is very fair. Our farm's productivity has gone up by 40%!</p>
+          <div class="testi-author">
+            <div class="testi-avatar">P</div>
+            <div>
+              <div class="testi-name">Peter Kiprotich</div>
+              <div class="testi-role">Agribusiness Partner</div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" data-animate="fade-scale" data-animate-delay="0.05">
+    <div class="container">
+      <h2>Ready to Boost Your Farm Production?</h2>
+      <p>Order today and receive healthy, transplant-ready seedlings delivered to your door.</p>
+      <div class="cta-buttons">
+        <a href="pages/shop.html" class="btn btn-primary">🛒 Shop Now</a>
+        <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20would%20like%20to%20place%20an%20order." target="_blank" class="btn btn-whatsapp">💬 WhatsApp Order</a>
+      </div>
+    </div>
+    <!-- subtle leaf accent -->
+    <svg width="220" height="120" viewBox="0 0 220 120" class="accent-blob" style="left:-40px;bottom:-20px;" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="g2" x1="0%" x2="100%"><stop offset="0%" stop-color="var(--green-mid)"/><stop offset="100%" stop-color="var(--gold)"/></linearGradient>
+      </defs>
+      <ellipse cx="60" cy="60" rx="80" ry="40" fill="url(#g2)"/>
+    </svg>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <picture>
+              <source srcset="images/optimized/logo-icon-640.webp" type="image/webp">
+              <img src="images/optimized/logo-icon-640.jpg" alt="Logo" style="width:40px;height:40px;object-fit:contain">
+            </picture>
+            <div class="nav-logo-text">
+              <span class="name">Toree Farm & Nursery Ltd</span>
+              <span class="tagline" style="color:var(--gold)">Home of Quality Seedlings</span>
+            </div>
+          </a>
+          <p>Premium vegetable seedlings grown with care in Litein Town. Empowering farmers with quality, consistency, and professional service.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" class="social-link" target="_blank">📘</a>
+            <a href="https://wa.me/254715108351" class="social-link" target="_blank">💬</a>
+            <a href="mailto:torefarmnurserylimited@gmail.com" class="social-link">📧</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/about.html">About Us</a></li>
+            <li><a href="pages/shop.html">Shop Now</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="pages/shop.html">Leafy Vegetables</a></li>
+            <li><a href="pages/shop.html">Fruit Vegetables</a></li>
+            <li><a href="pages/shop.html">Brassicas</a></li>
+            <li><a href="pages/shop.html">Specialty Crops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><span class="icon">📍</span><span>Litein Town, Behind AIC Litein Hospital, Kericho County</span></div>
+          <div class="footer-contact-item"><span class="icon">📞</span><a href="tel:+254715108351">+254 715 108 351</a></div>
+          <div class="footer-contact-item"><span class="icon">📧</span><a href="mailto:torefarmnurserylimited@gmail.com">torefarmnurserylimited@gmail.com</a></div>
+          <div class="footer-contact-item"><span class="icon">🕐</span><span>Mon–Sat: 7:00am – 6:00pm</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Toree Farm & Nursery Limited. All rights reserved. | Litein Town, Kenya</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/performance.js"></script>
+  <script>
+    // Render featured products (first 6)
+    const featured = PRODUCTS.slice(0, 6);
+    const grid = document.getElementById('featured-products');
+    grid.innerHTML = featured.map(p => renderProductCard(p)).join('');
+    initScrollAnimations();
+  </script>
+</body>
+</html>
