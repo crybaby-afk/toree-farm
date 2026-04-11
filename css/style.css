@@ -2259,3 +2259,175 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================================
+   Final De-Whitening Overrides
+   ======================================== */
+
+body,
+.featured,
+.products-section,
+.filter-section,
+.contact-section,
+.about-snap,
+.dashboard-content,
+.blog-content,
+.social-proof-section,
+.pickup,
+.mission-vision,
+.cart-section,
+.faq-section,
+.values-section,
+.team-section,
+.achievements-section,
+.process-section {
+  background:
+    radial-gradient(circle at top left, rgba(73,118,94,0.08), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(212,166,92,0.10), transparent 24%),
+    linear-gradient(180deg, #e7ddd0 0%, #ddd9cf 100%) !important;
+}
+
+.pedestal-stat,
+.mv-card,
+.why-card,
+.stat-item,
+.filter-sidebar,
+.weather-widget,
+.contact-info-card,
+.contact-form-panel,
+.cart-items-panel,
+.cart-summary-panel,
+.dashboard-card,
+.blog-post,
+.proof-item,
+.pickup-card,
+.product-card,
+.wishlist-item,
+.order-item,
+.tip-item,
+.metric,
+.support-link,
+.faq-item,
+.testimonial-card,
+.achievement-card,
+.team-card,
+.value-card,
+.process-step {
+  background:
+    linear-gradient(180deg, rgba(226, 215, 198, 0.96), rgba(214, 205, 190, 0.92)) !important;
+  border: 1px solid rgba(36, 55, 45, 0.12) !important;
+  box-shadow:
+    0 16px 32px rgba(26, 39, 32, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.18) !important;
+}
+
+.product-card::before,
+.blog-post::before,
+.dashboard-card::before,
+.contact-form-panel::before,
+.contact-info-card::before,
+.proof-item::before,
+.pickup-card::before,
+.mv-card::before,
+.why-card::before,
+.filter-sidebar::before,
+.weather-widget::before {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04) 38%, rgba(255,255,255,0) 72%),
+    radial-gradient(circle at 100% 0%, rgba(73,118,94,0.12), transparent 35%) !important;
+}
+
+.btn,
+.add-to-cart-btn,
+.nav-cart-btn,
+.filter-btn,
+.gallery-filter-btn,
+.nav-btn {
+  background-image: none !important;
+  box-shadow: 0 12px 24px rgba(24, 42, 34, 0.14) !important;
+}
+
+.btn-primary,
+.add-to-cart-btn,
+.nav-cart-btn {
+  background: linear-gradient(135deg, #1d382d, #325443 60%, #496d5b) !important;
+  color: #f8f4ec !important;
+  border-color: rgba(29,56,45,0.22) !important;
+}
+
+.btn-secondary,
+.btn-success {
+  background: linear-gradient(135deg, #284437, #416654) !important;
+  color: #f8f4ec !important;
+}
+
+.btn-gold,
+.btn-earth {
+  background: linear-gradient(135deg, #9f7a49, #c8a272) !important;
+  color: #1c2d25 !important;
+  border-color: rgba(120,90,55,0.18) !important;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #1b8c62, #28a06f) !important;
+  color: #f7f4ed !important;
+}
+
+.btn-outline,
+.gallery-filter-btn,
+.nav-btn,
+.filter-btn:not(.active):not(.active-price) {
+  background: linear-gradient(135deg, rgba(54, 82, 67, 0.88), rgba(77, 104, 89, 0.92)) !important;
+  color: #f6f2ea !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+}
+
+.btn-outline:hover,
+.gallery-filter-btn:hover,
+.nav-btn:hover:not(:disabled),
+.filter-btn:hover:not(.active):not(.active-price) {
+  background: linear-gradient(135deg, rgba(68, 96, 80, 0.96), rgba(93, 120, 104, 0.98)) !important;
+  color: #fff !important;
+}
+
+.filter-btn.active,
+.filter-btn.active-price,
+.gallery-filter-btn.active {
+  background: linear-gradient(135deg, #17352b, #2a4c3c) !important;
+  color: #f8f4ec !important;
+}
+
+.search-bar input,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.qty-input,
+.sort-select,
+#calc-area,
+#calc-crop,
+#calc-density {
+  background: rgba(228, 219, 204, 0.94) !important;
+  color: #1b2f26 !important;
+  border: 1px solid rgba(36,55,45,0.14) !important;
+}
+
+.qty-btn {
+  background: #d9cdbb !important;
+  color: #1c3329 !important;
+  border-color: rgba(36,55,45,0.16) !important;
+}
+
+.qty-btn:hover {
+  background: #2d5140 !important;
+  color: #f8f4ec !important;
+}
+
+.nav-links {
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    background: linear-gradient(180deg, rgba(215,206,192,0.98), rgba(203,194,178,0.98)) !important;
+  }
+}
