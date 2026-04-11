@@ -2431,3 +2431,331 @@ body,
     background: linear-gradient(180deg, rgba(215,206,192,0.98), rgba(203,194,178,0.98)) !important;
   }
 }
+
+/* ========================================
+   Art Direction Reset
+   ======================================== */
+
+:root {
+  --surface-deep: #0f1c18;
+  --surface-deeper: #13241f;
+  --surface-midnight: #1a2f28;
+  --surface-moss: #27453a;
+  --surface-panel: rgba(19, 36, 31, 0.78);
+  --surface-panel-strong: rgba(22, 40, 34, 0.92);
+  --surface-soft-dark: rgba(34, 58, 49, 0.92);
+  --surface-input: rgba(18, 31, 27, 0.9);
+  --text-strong: #f4efe6;
+  --text-body: #d7d0c3;
+  --text-muted: #abbaa8;
+  --accent-gold: #d2a35c;
+  --accent-green: #78a98d;
+  --accent-forest: #3d6b59;
+  --line-dark: rgba(255,255,255,0.08);
+}
+
+body,
+.featured,
+.products-section,
+.filter-section,
+.contact-section,
+.about-snap,
+.dashboard-content,
+.blog-content,
+.social-proof-section,
+.pickup,
+.mission-vision,
+.cart-section,
+.faq-section,
+.values-section,
+.team-section,
+.achievements-section,
+.process-section {
+  background:
+    radial-gradient(circle at top right, rgba(210,163,92,0.12), transparent 22%),
+    radial-gradient(circle at bottom left, rgba(120,169,141,0.10), transparent 24%),
+    linear-gradient(180deg, var(--surface-deep) 0%, var(--surface-deeper) 100%) !important;
+  color: var(--text-strong) !important;
+}
+
+.why-us,
+.gallery-section,
+.buy-cta,
+.cta-banner,
+.quick-order-banner,
+.blog-hero,
+.dashboard-hero,
+.page-hero,
+.hero,
+footer {
+  background:
+    radial-gradient(circle at top right, rgba(210,163,92,0.14), transparent 20%),
+    radial-gradient(circle at 15% 85%, rgba(120,169,141,0.10), transparent 18%),
+    linear-gradient(135deg, #0b1512 0%, #13241f 45%, #1c342c 100%) !important;
+  color: var(--text-strong) !important;
+}
+
+.hero-bg {
+  filter: brightness(0.26) saturate(0.8) contrast(1.05) !important;
+}
+
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(6,12,10,0.78), rgba(18,34,29,0.66), rgba(44,76,63,0.46)) !important;
+}
+
+.hero-content,
+.pedestal-stat,
+.mv-card,
+.why-card,
+.stat-item,
+.filter-sidebar,
+.weather-widget,
+.contact-info-card,
+.contact-form-panel,
+.cart-items-panel,
+.cart-summary-panel,
+.dashboard-card,
+.blog-post,
+.proof-item,
+.pickup-card,
+.product-card,
+.wishlist-item,
+.order-item,
+.tip-item,
+.metric,
+.support-link,
+.faq-item,
+.testimonial-card,
+.achievement-card,
+.team-card,
+.value-card,
+.process-step {
+  background:
+    linear-gradient(180deg, var(--surface-panel-strong), var(--surface-panel)) !important;
+  color: var(--text-strong) !important;
+  border: 1px solid var(--line-dark) !important;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  backdrop-filter: blur(18px) saturate(110%) !important;
+}
+
+.hero-content::before,
+.pedestal-stat::before,
+.mv-card::before,
+.why-card::before,
+.stat-item::before,
+.filter-sidebar::before,
+.weather-widget::before,
+.contact-info-card::before,
+.contact-form-panel::before,
+.cart-items-panel::before,
+.cart-summary-panel::before,
+.dashboard-card::before,
+.blog-post::before,
+.proof-item::before,
+.pickup-card::before,
+.product-card::before,
+.wishlist-item::before,
+.order-item::before,
+.tip-item::before,
+.metric::before,
+.support-link::before {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02) 40%, rgba(255,255,255,0) 72%),
+    radial-gradient(circle at top right, rgba(210,163,92,0.16), transparent 34%) !important;
+}
+
+.section-title,
+.about-snap-text .section-title,
+.product-body h3,
+.filter-sidebar h3,
+.filter-group h4,
+.contact-info-card h4,
+.contact-form-panel h3,
+.blog-text h2,
+.dashboard-card h3,
+.dashboard-card h4,
+.cart-summary-panel h3,
+.cart-items-header h3,
+.cta-content h2,
+.buy-cta h2,
+.cta-banner h2,
+.page-hero h1,
+.blog-hero h1,
+.dashboard-hero h1,
+.hero h1 {
+  color: var(--text-strong) !important;
+}
+
+.section-subtitle,
+.product-body p,
+.about-snap-text p,
+.contact-info-card p,
+.dashboard-card p,
+.blog-text p,
+.tip-content p,
+.support-link p,
+.proof-label,
+.weather-details span,
+.checkout-note,
+.cart-item-price,
+.page-hero p,
+.blog-hero p,
+.dashboard-hero p,
+.hero p {
+  color: var(--text-body) !important;
+}
+
+.price-tag,
+.summary-total,
+.summary-row,
+.cart-item-name,
+.order-amount,
+.wishlist-item h4,
+.wishlist-item p,
+.metric-value,
+.proof-number,
+.hero-stat .num,
+.pedestal-stat .stat-num,
+.achievement-number {
+  color: #f5d39b !important;
+}
+
+.nav-logo-text .name,
+.nav-links a,
+.hamburger span,
+.footer-col h4,
+.footer-brand p,
+.footer-col a,
+.footer-contact-item,
+footer p {
+  color: var(--text-strong) !important;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(210,163,92,0.14) !important;
+  color: #fff4df !important;
+}
+
+.btn,
+.add-to-cart-btn,
+.nav-cart-btn,
+.filter-btn,
+.gallery-filter-btn,
+.nav-btn {
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.24) !important;
+}
+
+.btn-primary,
+.add-to-cart-btn,
+.nav-cart-btn {
+  background: linear-gradient(135deg, #8b653d, #c19157 55%, #e0bf86) !important;
+  color: #102019 !important;
+}
+
+.btn-secondary,
+.btn-success {
+  background: linear-gradient(135deg, #315847, #4f7a67 60%, #7ca58f) !important;
+  color: #f6f1e8 !important;
+}
+
+.btn-gold,
+.btn-earth,
+.filter-btn.active,
+.filter-btn.active-price,
+.gallery-filter-btn.active {
+  background: linear-gradient(135deg, #c38f4e, #e0bc7f) !important;
+  color: #12211b !important;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #1d8b60, #34b27d) !important;
+  color: #f3efe7 !important;
+}
+
+.btn-outline,
+.gallery-filter-btn,
+.nav-btn,
+.filter-btn:not(.active):not(.active-price) {
+  background: linear-gradient(135deg, rgba(39,69,58,0.96), rgba(54,89,75,0.96)) !important;
+  color: var(--text-strong) !important;
+}
+
+.search-bar input,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.qty-input,
+.sort-select,
+#calc-area,
+#calc-crop,
+#calc-density {
+  background: var(--surface-input) !important;
+  color: var(--text-strong) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04) !important;
+}
+
+.search-bar input::placeholder,
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+.qty-btn {
+  background: rgba(55, 86, 73, 0.92) !important;
+  color: var(--text-strong) !important;
+}
+
+.qty-btn:hover {
+  background: linear-gradient(135deg, #9f7547, #c8975c) !important;
+  color: #12211b !important;
+}
+
+.product-img,
+.cart-item-img,
+.map-placeholder {
+  background: linear-gradient(135deg, rgba(34,58,49,0.92), rgba(19,36,31,0.96)) !important;
+}
+
+.quick-nav {
+  background: rgba(14, 26, 22, 0.58) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.quick-nav a {
+  background: rgba(255,255,255,0.06) !important;
+  color: var(--text-strong) !important;
+}
+
+.quick-nav a:hover {
+  background: rgba(210,163,92,0.16) !important;
+  color: #fff6e5 !important;
+}
+
+.gallery-overlay {
+  background: linear-gradient(180deg, transparent, rgba(4,8,7,0.88)) !important;
+}
+
+.social-link {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.social-link:hover {
+  background: rgba(210,163,92,0.18) !important;
+  color: #fff6e5 !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    background: linear-gradient(180deg, rgba(14,26,22,0.98), rgba(24,43,36,0.98)) !important;
+  }
+}
