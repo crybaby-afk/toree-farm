@@ -6,9 +6,18 @@
 // ---- PRODUCTS DATA ----
 let PRODUCTS = [];
 
+function getPathPrefix() {
+  const path = window.location.pathname.replace(/\\/g, '/');
+  return path.includes('/pages/') ? '../' : '';
+}
+
+function getShopPageHref() {
+  return getPathPrefix() ? 'shop.html' : 'pages/shop.html';
+}
+
 async function loadProducts() {
   try {
-    const response = await fetch('/data/products.json');
+    const response = await fetch(`${getPathPrefix()}data/products.json`);
     if (!response.ok) throw new Error('Failed to load products data');
     PRODUCTS = await response.json();
     return PRODUCTS;
@@ -196,7 +205,7 @@ function saveCart() {
 }
 
 function updateCartBadge() {
-  const badges = document.querySelectorAll('.cart-badge');
+  const badges = document.querySelectorAll('.cart-badge, .cart-count');
   const count = cart.reduce((s, i) => s + i.qty, 0);
   badges.forEach(b => {
     b.textContent = count;
@@ -253,22 +262,28 @@ let currentModalProduct = null;
 function openModal(product) {
   currentModalProduct = product;
   const modal = document.getElementById('product-modal');
-  const title = document.getElementById('modal-title');
+  const title = document.getElementById('modal-title') || document.getElementById('modal-name');
   const img = document.getElementById('modal-img');
   const desc = document.getElementById('modal-desc');
   const price = document.getElementById('modal-price');
   const stock = document.getElementById('modal-stock');
   const watering = document.getElementById('modal-watering');
+  const category = document.getElementById('modal-category');
+  const growth = document.getElementById('modal-growth');
+  const spacing = document.getElementById('modal-spacing');
   const qtyInput = document.getElementById('modal-qty-input');
 
   if (modal && title && img && desc && price && stock && watering && qtyInput) {
     title.textContent = product.name;
-    img.src = `../images/optimized/${product.image}-640.jpg`;
+    img.src = `${getPathPrefix()}images/optimized/${product.img || product.image}-640.jpg`;
     img.alt = product.name;
     desc.textContent = product.description;
     price.textContent = `KES ${product.price.toFixed(2)}`;
-    stock.textContent = product.stock > 0 ? `${product.stock} available` : 'Out of stock';
+    stock.textContent = typeof product.stock === 'number' ? `${product.stock} available` : product.stock;
     watering.textContent = product.watering || 'Regular watering';
+    if (category) category.textContent = product.category || '';
+    if (growth) growth.textContent = product.growth || '';
+    if (spacing) spacing.textContent = product.spacing || '';
     qtyInput.value = 1;
 
     modal.classList.add('open');
@@ -479,7 +494,7 @@ function renderPickupCard() {
       <h3>Pick of the Day</h3>
       <p>${product.name}</p>
       <span class="pickup-price">KES ${product.price.toFixed(2)}</span>
-      <a class="btn btn-primary" href="pages/shop.html">Shop ${product.category}</a>
+      <a class="btn btn-primary" href="${getShopPageHref()}">Shop ${product.category}</a>
     </div>
   `;
 }
@@ -521,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Register service worker for PWA
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register(`${getPathPrefix()}sw.js`)
         .then(registration => {
           console.log('Service Worker registered successfully:', registration.scope);
         })
@@ -632,7 +647,7 @@ function filterProducts() {
 }
 
 function renderFilteredProducts(products) {
-  const container = document.getElementById('products-grid');
+  const container = document.getElementById('products-grid') || document.getElementById('shop-products');
   if (!container) return;
 
   container.innerHTML = products.map(product => renderProductCard(product, true)).join('');
@@ -640,7 +655,7 @@ function renderFilteredProducts(products) {
 }
 
 function updateProductCount(count) {
-  const counter = document.querySelector('.product-count');
+  const counter = document.querySelector('.product-count') || document.getElementById('product-count');
   if (counter) {
     counter.textContent = `${count} product${count !== 1 ? 's' : ''} found`;
   }

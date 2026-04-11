@@ -4,13 +4,12 @@ const DYNAMIC_CACHE = 'toree-dynamic-v1.0.0';
 
 // Static assets to cache
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/main.js',
-  '/images/logo.png',
-  '/images/favicon.ico',
-  '/manifest.json'
+  './',
+  './index.html',
+  './css/style.css',
+  './js/main.js',
+  './manifest.json',
+  './images/raw/logo.png'
 ];
 
 // Install event - cache static assets
@@ -84,7 +83,7 @@ self.addEventListener('fetch', event => {
             console.log('Service Worker: Fetch failed, serving offline page');
             // If fetch fails and it's a page request, serve offline page
             if (event.request.destination === 'document') {
-              return caches.match('/offline.html') || new Response('Offline - Please check your connection', {
+              return new Response('Offline - Please check your connection', {
                 status: 503,
                 statusText: 'Service Unavailable'
               });
@@ -107,8 +106,8 @@ self.addEventListener('push', event => {
     const data = event.data.json();
     const options = {
       body: data.body,
-      icon: '/images/icons/icon-192x192.png',
-      badge: '/images/icons/icon-72x72.png',
+        icon: './images/raw/logo-icon.png',
+        badge: './images/raw/logo-icon.png',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),
@@ -127,33 +126,11 @@ self.addEventListener('notificationclick', event => {
   event.notification.close();
 
   event.waitUntil(
-    clients.openWindow('/')
+    clients.openWindow('./')
   );
 });
 
 // Helper function for syncing pending orders
 async function syncPendingOrders() {
-  try {
-    // Get pending orders from IndexedDB or localStorage
-    const pendingOrders = JSON.parse(localStorage.getItem('pendingOrders') || '[]');
-
-    if (pendingOrders.length === 0) return;
-
-    // Send orders to server
-    for (const order of pendingOrders) {
-      await fetch('/api/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(order)
-      });
-    }
-
-    // Clear pending orders
-    localStorage.removeItem('pendingOrders');
-    console.log('Service Worker: Synced pending orders');
-  } catch (error) {
-    console.error('Service Worker: Failed to sync orders:', error);
-  }
+  return Promise.resolve();
 }

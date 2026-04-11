@@ -31,8 +31,8 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="shop.html" class="active">Shop</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="dashboard.html">My Account</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../dashboard.html">My Account</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div style="display:flex; gap:10px; align-items:center">
@@ -333,7 +333,7 @@
       document.getElementById('modal-watering').textContent = p.watering;
       document.getElementById('modal-stock').textContent = p.stock;
       document.getElementById('modal-category').textContent = p.category;
-      document.getElementById('modal-qty-display').textContent = 1;
+      document.getElementById('modal-qty-input').value = 1;
       const img = document.getElementById('modal-img');
       img.src = `../images/optimized/${p.img}-1024.jpg`;
       img.alt = p.name;
@@ -355,7 +355,7 @@
 
     function modalChangeQty(d) {
       modalQty = Math.max(1, modalQty + d);
-      document.getElementById('modal-qty-display').textContent = modalQty;
+      document.getElementById('modal-qty-input').value = modalQty;
     }
 
     function modalAddToCart() {
