@@ -223,7 +223,7 @@ function addToCart(productId, qty = 1) {
     cart.push({ id: productId, name: product.name, price: product.price, emoji: product.emoji, qty });
   }
   saveCart();
-  showToast(`✅ ${product.name} added to cart!`);
+  showToast(`Added to cart: ${product.name}`);
 }
 
 function removeFromCart(productId) {
@@ -429,9 +429,9 @@ function _globalKeyHandler(e) {
 // ---- WHATSAPP ORDER ----
 function buildWhatsAppMessage() {
   if (cart.length === 0) return null;
-  let msg = '🌱 *Order from Toree Farm & Nursery Ltd*\n\n';
+  let msg = '*Order from Toree Farm & Nursery Ltd*\n\n';
   cart.forEach(item => {
-    msg += `• ${item.name} x${item.qty} = KES ${(item.price * item.qty).toFixed(2)}\n`;
+    msg += `- ${item.name} x${item.qty} = KES ${(item.price * item.qty).toFixed(2)}\n`;
   });
   msg += `\n*Total: KES ${getCartTotal().toFixed(2)}*\n\nPlease confirm availability. Thank you!`;
   return encodeURIComponent(msg);
@@ -439,7 +439,7 @@ function buildWhatsAppMessage() {
 
 function orderViaWhatsApp() {
   const msg = buildWhatsAppMessage();
-  if (!msg) { showToast('⚠️ Your cart is empty!', 'error'); return; }
+  if (!msg) { showToast('Your cart is empty.', 'error'); return; }
   window.open(`https://wa.me/254715108351?text=${msg}`, '_blank');
 }
 
