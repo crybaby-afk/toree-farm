@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,115 +6,87 @@
   <title>My Account - Toree Farm & Nursery Ltd</title>
   <meta name="description" content="Manage your account, view order history, and track deliveries with Toree Farm & Nursery Ltd.">
   <meta name="theme-color" content="#4a7c59">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Toree Farm">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="images/raw/logo-icon.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/optimized/logo-icon-640.webp" type="image/webp">
 </head>
 <body class="dashboard-page">
-  <!-- Agricultural floating elements -->
-  <div class="agricultural-elements">
-    <div class="leaf">🍃</div>
-    <div class="leaf">🌿</div>
-    <div class="leaf">🌱</div>
-    <div class="leaf">🌾</div>
+  <div class="agricultural-elements" aria-hidden="true">
+    <div class="leaf">*</div>
+    <div class="leaf">*</div>
+    <div class="leaf">*</div>
+    <div class="leaf">*</div>
   </div>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container nav-inner">
-      <div class="logo">
-        <a href="index.html">
-          <img src="images/optimized/logo-640.webp" alt="Toree Farm Logo" class="logo-img">
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="pages/about.html">About</a>
-        <a href="pages/shop.html">Shop</a>
-        <a href="pages/gallery.html">Gallery</a>
-        <a href="blog.html">Blog</a>
-        <a href="pages/contact.html">Contact</a>
-        <a href="dashboard.html" class="active">My Account</a>
-        <a href="pages/cart.html" class="cart-link">
-          <span class="cart-icon">🛒</span>
-          <span class="cart-count">0</span>
-        </a>
-      </div>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a href="index.html" class="nav-logo">
+        <picture>
+          <source srcset="images/optimized/logo-icon-640.webp" type="image/webp">
+          <img src="images/optimized/logo-icon-640.jpg" alt="Toree Farm Logo" style="width:50px;height:50px;object-fit:contain">
+        </picture>
+        <div class="nav-logo-text">
+          <span class="name">Toree Farm & Nursery Ltd</span>
+          <span class="tagline">Home of Quality Seedlings</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/shop.html">Shop</a></li>
+        <li><a href="pages/gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="dashboard.html" class="active">My Account</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+      <div style="display:flex; gap:10px; align-items:center">
+        <a href="pages/cart.html" class="nav-cart-btn">Cart <span class="cart-count">0</span></a>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
 
-  <!-- DASHBOARD HERO -->
-  <section class="dashboard-hero">
+  <section class="dashboard-hero page-hero">
     <div class="container">
       <h1>Welcome to Your Dashboard</h1>
-      <p>Manage your orders, preferences, and agricultural journey with Toree Farm</p>
+      <p>Track orders, review saved products, and stay close to your next seedling delivery.</p>
     </div>
   </section>
 
-  <!-- DASHBOARD CONTENT -->
   <section class="dashboard-content">
     <div class="container">
       <div class="dashboard-grid">
-        <!-- Profile Section -->
         <div class="dashboard-card profile-card">
-          <div class="card-header">
-            <h3>👤 Profile Information</h3>
-          </div>
+          <div class="card-header"><h3>Profile Information</h3></div>
           <div class="card-content">
             <div class="profile-info">
-              <div class="profile-avatar">
-                <span>👨‍🌾</span>
-              </div>
+              <div class="profile-avatar"><span>Farm</span></div>
               <div class="profile-details">
                 <h4>John Farmer</h4>
                 <p>john.farmer@email.com</p>
-                <p>📍 Kericho, Kenya</p>
+                <p>Litein Town (Bureti Sub-County), Kericho County</p>
               </div>
             </div>
             <button class="btn-secondary edit-profile-btn">Edit Profile</button>
           </div>
         </div>
 
-        <!-- Quick Stats -->
         <div class="dashboard-card stats-card">
-          <div class="card-header">
-            <h3>📊 Quick Stats</h3>
-          </div>
+          <div class="card-header"><h3>Quick Stats</h3></div>
           <div class="card-content">
             <div class="stats-grid">
-              <div class="stat-item">
-                <div class="stat-number">12</div>
-                <div class="stat-label">Total Orders</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">8</div>
-                <div class="stat-label">Active Orders</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">4.8</div>
-                <div class="stat-label">Avg Rating</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Farm Size (acres)</div>
-              </div>
+              <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">Total Orders</div></div>
+              <div class="stat-item"><div class="stat-number">8</div><div class="stat-label">Active Orders</div></div>
+              <div class="stat-item"><div class="stat-number">4.8</div><div class="stat-label">Average Rating</div></div>
+              <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">Farm Size (Acres)</div></div>
             </div>
           </div>
         </div>
 
-        <!-- Recent Orders -->
         <div class="dashboard-card orders-card">
           <div class="card-header">
-            <h3>📦 Recent Orders</h3>
+            <h3>Recent Orders</h3>
             <a href="#" class="view-all">View All</a>
           </div>
           <div class="card-content">
@@ -147,40 +119,36 @@
           </div>
         </div>
 
-        <!-- Growing Tips -->
         <div class="dashboard-card tips-card">
-          <div class="card-header">
-            <h3>🌱 Personalized Growing Tips</h3>
-          </div>
+          <div class="card-header"><h3>Personalized Growing Tips</h3></div>
           <div class="card-content">
             <div class="tip-item">
-              <div class="tip-icon">🌤️</div>
+              <div class="tip-icon">Rain</div>
               <div class="tip-content">
                 <h4>Weather Alert</h4>
-                <p>Heavy rains expected tomorrow. Consider delaying transplanting for 2-3 days.</p>
+                <p>Heavy rains are expected tomorrow. Consider delaying transplanting for two to three days.</p>
               </div>
             </div>
             <div class="tip-item">
-              <div class="tip-icon">🌾</div>
+              <div class="tip-icon">Care</div>
               <div class="tip-content">
                 <h4>Broccoli Care</h4>
-                <p>Your broccoli seedlings are ready for hardening off. Start with 2-3 hours of outdoor exposure.</p>
+                <p>Your broccoli seedlings are ready for hardening off. Start with short outdoor exposure and increase gradually.</p>
               </div>
             </div>
             <div class="tip-item">
-              <div class="tip-icon">🐛</div>
+              <div class="tip-icon">Pest</div>
               <div class="tip-content">
                 <h4>Pest Prevention</h4>
-                <p>Monitor for aphids on your spinach. Consider neem oil treatment if spotted.</p>
+                <p>Monitor spinach leaves for aphids and act early if you notice clusters building up.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Wishlist -->
         <div class="dashboard-card wishlist-card">
           <div class="card-header">
-            <h3>❤️ Wishlist</h3>
+            <h3>Wishlist</h3>
             <a href="#" class="view-all">View All</a>
           </div>
           <div class="card-content">
@@ -207,11 +175,8 @@
           </div>
         </div>
 
-        <!-- Farm Analytics -->
         <div class="dashboard-card analytics-card">
-          <div class="card-header">
-            <h3>📈 Farm Analytics</h3>
-          </div>
+          <div class="card-header"><h3>Farm Analytics</h3></div>
           <div class="card-content">
             <div class="analytics-chart">
               <h4>Monthly Spending Trend</h4>
@@ -223,45 +188,27 @@
               </div>
             </div>
             <div class="analytics-metrics">
-              <div class="metric">
-                <span class="metric-value">KSh 8,200</span>
-                <span class="metric-label">This Month</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value">+15%</span>
-                <span class="metric-label">vs Last Month</span>
-              </div>
+              <div class="metric"><span class="metric-value">KSh 8,200</span><span class="metric-label">This Month</span></div>
+              <div class="metric"><span class="metric-value">+15%</span><span class="metric-label">vs Last Month</span></div>
             </div>
           </div>
         </div>
 
-        <!-- Support & Help -->
         <div class="dashboard-card support-card">
-          <div class="card-header">
-            <h3>🆘 Support & Help</h3>
-          </div>
+          <div class="card-header"><h3>Support & Help</h3></div>
           <div class="card-content">
             <div class="support-options">
-            <a href="pages/contact.html" class="support-link">
-                <span class="support-icon">📞</span>
-                <div>
-                  <h4>Contact Support</h4>
-                  <p>Get help with orders & farming advice</p>
-                </div>
+              <a href="pages/contact.html" class="support-link">
+                <span class="support-icon">Talk</span>
+                <div><h4>Contact Support</h4><p>Get help with orders and growing advice.</p></div>
               </a>
               <a href="blog.html" class="support-link">
-                <span class="support-icon">📚</span>
-                <div>
-                  <h4>Growing Guides</h4>
-                  <p>Expert tips & tutorials</p>
-                </div>
+                <span class="support-icon">Read</span>
+                <div><h4>Growing Guides</h4><p>Explore tips and tutorials.</p></div>
               </a>
               <a href="#" class="support-link">
-                <span class="support-icon">🚚</span>
-                <div>
-                  <h4>Delivery Tracking</h4>
-                  <p>Track your current orders</p>
-                </div>
+                <span class="support-icon">Track</span>
+                <div><h4>Delivery Tracking</h4><p>Track your current orders.</p></div>
               </a>
             </div>
           </div>
@@ -270,17 +217,16 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
           <h3>Toree Farm & Nursery Ltd</h3>
-          <p>Your trusted partner for premium vegetable seedlings and agricultural excellence in Kericho, Kenya.</p>
+          <p>Premium vegetable seedlings and practical growing support from Litein Town (Bureti Sub-County), Kericho County.</p>
           <div class="social-links">
-            <a href="#" aria-label="WhatsApp">📱 WhatsApp</a>
-            <a href="#" aria-label="Facebook">📘 Facebook</a>
-            <a href="#" aria-label="Instagram">📷 Instagram</a>
+            <a href="https://wa.me/254715108351" aria-label="WhatsApp">WhatsApp</a>
+            <a href="https://facebook.com" aria-label="Facebook">Facebook</a>
+            <a href="mailto:torefarmnurserylimited@gmail.com" aria-label="Email">Email</a>
           </div>
         </div>
         <div class="footer-section">
@@ -295,24 +241,24 @@
         </div>
         <div class="footer-section">
           <h3>Contact Info</h3>
-          <p>📍 Litein Town, Kericho, Kenya</p>
-          <p>📞 +254 712 345 678</p>
-          <p>✉️ info@toreefarm.com</p>
-          <p>🕒 Mon-Sat: 8AM-6PM</p>
+          <p>Litein Town (Bureti Sub-County), Kericho County</p>
+          <p>+254 715 108 351</p>
+          <p>torefarmnurserylimited@gmail.com</p>
+          <p>Mon-Sat: 8am - 5pm</p>
         </div>
         <div class="footer-section">
           <h3>Services</h3>
           <ul>
             <li>Premium Seedlings</li>
-            <li>Agricultural Consulting</li>
-            <li>Farm Supplies</li>
-            <li>Growing Guides</li>
-            <li>Delivery Services</li>
+            <li>Growing Guidance</li>
+            <li>Bulk Orders</li>
+            <li>Vegetable Varieties</li>
+            <li>Delivery Support</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 Toree Farm & Nursery Ltd. All rights reserved. | Designed for agricultural excellence.</p>
+        <p>&copy; 2025 Toree Farm & Nursery Ltd. All rights reserved.</p>
       </div>
     </div>
   </footer>

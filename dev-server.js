@@ -4,7 +4,8 @@ const path = require('path');
 const { URL } = require('url');
 
 const root = __dirname;
-const port = Number(process.env.PORT || 8081);
+const defaultPort = Number(process.env.PORT || 8081);
+let currentPort = defaultPort;
 
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',
@@ -132,6 +133,21 @@ fs.watch(root, { recursive: true }, (eventType, filename) => {
   scheduleReload();
 });
 
-server.listen(port, () => {
-  console.log(`Toree Farm dev server running at http://localhost:${port}`);
+function startServer(port) {
+  currentPort = port;
+  server.listen(port, () => {
+    console.log(`Toree Farm dev server running at http://localhost:${port}`);
+  });
+}
+
+server.on('error', (error) => {
+  if (error.code === 'EADDRINUSE') {
+    const nextPort = currentPort + 1;
+    console.log(`Port in use. Retrying on http://localhost:${nextPort}`);
+    setTimeout(() => startServer(nextPort), 150);
+    return;
+  }
+  throw error;
 });
+
+startServer(defaultPort);
