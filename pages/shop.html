@@ -189,6 +189,26 @@
             <div id="calc-result" style="margin-top:12px; color:#2d5a27; font-weight:700;"></div>
           </div>
         </aside>
+        <div class="shop-side-story">
+          <article class="shop-side-card spotlight" data-animate="slide-left" data-animate-delay="0.05">
+            <span class="shop-side-kicker">Field planning</span>
+            <h3>Buy with a planting plan, not just a product list.</h3>
+            <p>Use the filter rail for control, then move fast with a recommendation or WhatsApp the team for a cleaner variety mix.</p>
+            <div class="shop-side-highlights">
+              <span>Fast-growing leafy lines</span>
+              <span>Quarter-acre guidance</span>
+              <span>Bulk restock support</span>
+            </div>
+          </article>
+          <article class="shop-side-card" data-animate="fade-scale" data-animate-delay="0.08">
+            <span class="shop-side-kicker">Farmer note</span>
+            <blockquote>“If you are unsure, start with the strongest movers and build from there. We can help refine the mix on WhatsApp.”</blockquote>
+            <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20Help%20me%20refine%20my%20seedling%20mix." class="btn btn-outline" target="_blank">Refine my mix</a>
+          </article>
+          <article class="shop-side-card photo" data-animate="slide-left" data-animate-delay="0.12">
+            <img src="../images/optimized/nursery-banner-1024.jpg" alt="Toree Farm nursery overview">
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -223,6 +243,16 @@
 
   <section class="products-section">
     <div class="container">
+      <div class="shop-command-bar">
+        <div>
+          <span class="shop-command-kicker">Shop canvas</span>
+          <h3>Premium trays, seasonal picks, and one-tap ordering.</h3>
+        </div>
+        <div class="shop-command-pills">
+          <span id="shop-signal">Showing all varieties</span>
+          <span id="shop-price-signal">All prices</span>
+        </div>
+      </div>
       <div class="shop-header">
         <p id="product-count">Showing all 19 products</p>
         <select class="sort-select" id="sort-select">
@@ -365,6 +395,7 @@
       const grid = document.getElementById('shop-products');
       const count = document.getElementById('product-count');
       count.textContent = `Showing ${products.length} product${products.length !== 1 ? 's' : ''}`;
+      updateShopSignals();
       if (products.length === 0) {
         grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:60px; color:var(--text-light)">
           <div style="font-size:3rem; margin-bottom:16px">Search</div>
@@ -385,6 +416,27 @@
         .slice(0, 3);
       recommended.innerHTML = picks.map(p => renderProductCard(p, true)).join('');
       initScrollAnimations();
+    }
+
+    function updateShopSignals() {
+      const categoryMap = {
+        all: 'Showing all varieties',
+        leafy: 'Leafy vegetables selected',
+        fruit: 'Fruit vegetables selected',
+        brassica: 'Brassicas selected',
+        specialty: 'Specialty crops selected'
+      };
+      const priceMap = {
+        all: 'All prices',
+        low: 'Under KES 3',
+        mid: 'KES 3 to 5',
+        high: 'Above KES 5'
+      };
+      const signal = document.getElementById('shop-signal');
+      const priceSignal = document.getElementById('shop-price-signal');
+      const priceFilter = document.querySelector('.filter-btn.active-price')?.dataset.price || 'all';
+      if (signal) signal.textContent = categoryMap[currentFilter] || 'Showing all varieties';
+      if (priceSignal) priceSignal.textContent = priceMap[priceFilter] || 'All prices';
     }
 
     function filterByCategory(cat) {
