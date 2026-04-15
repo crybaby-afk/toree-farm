@@ -647,7 +647,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   renderGallery();
   // Register service worker for PWA
-  if ('serviceWorker' in navigator) {
+  const isLocalDev = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  if ('serviceWorker' in navigator && !isLocalDev) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register(`${getPathPrefix()}sw.js`)
         .then(registration => {
@@ -656,6 +657,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
           console.log('Service Worker registration failed:', error);
         });
+    });
+  } else if ('serviceWorker' in navigator && isLocalDev) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      registrations.forEach(registration => registration.unregister());
     });
   }
   // Attach gallery filter listeners

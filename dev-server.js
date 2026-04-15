@@ -27,6 +27,8 @@ const mimeTypes = {
 
 const clients = new Set();
 let reloadTimer = null;
+const reloadableExtensions = new Set(['.html', '.css', '.js', '.json']);
+const ignoredFragments = ['.git', '.tmp', '.swp', '.crdownload', '~$', 'OneDrive'];
 
 const liveReloadSnippet = `
 <script>
@@ -35,9 +37,16 @@ const liveReloadSnippet = `
   const source = new EventSource(protocol + '://' + location.host + '/__livereload');
   source.addEventListener('reload', () => window.location.reload());
   source.onerror = () => {
-    source.close();
-    setTimeout(() => window.location.reload(), 1500);
+    console.warn('Live reload connection interrupted; waiting to reconnect.');
   };
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      registrations.forEach(registration => registration.unregister());
+    });
+  }
+  if ('caches' in window) {
+    caches.keys().then(keys => keys.forEach(key => caches.delete(key)));
+  }
 })();
 </script>`;
 
@@ -129,7 +138,9 @@ const server = http.createServer((req, res) => {
 
 fs.watch(root, { recursive: true }, (eventType, filename) => {
   if (!filename) return;
-  if (filename.includes('.git')) return;
+  if (ignoredFragments.some(fragment => filename.includes(fragment))) return;
+  const ext = path.extname(filename).toLowerCase();
+  if (!reloadableExtensions.has(ext)) return;
   scheduleReload();
 });
 
