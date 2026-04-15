@@ -15,6 +15,31 @@ function getShopPageHref() {
   return getPathPrefix() ? 'shop.html' : 'pages/shop.html';
 }
 
+function formatCurrency(value) {
+  return `KES ${Number(value).toFixed(2)}`;
+}
+
+function getSeasonTag(product) {
+  const seasonal = {
+    leafy: 'Fast mover',
+    fruit: 'High demand',
+    brassica: 'Cool season',
+    specialty: 'Farm favorite'
+  };
+  return seasonal[product.category] || 'Fresh pick';
+}
+
+function getStockTone(product) {
+  return Number(product.price) >= 5 ? 'premium' : Number(product.price) <= 2.5 ? 'starter' : 'steady';
+}
+
+function getStockLabel(product) {
+  const tone = getStockTone(product);
+  if (tone === 'premium') return 'Premium line';
+  if (tone === 'starter') return 'Ready now';
+  return 'Fresh batch';
+}
+
 async function loadProducts() {
   try {
     const response = await fetch(`${getPathPrefix()}data/products.json`);
@@ -519,8 +544,12 @@ function renderProductCard(product, isShopPage = false) {
   const imgBase = `${pathPrefix}images/optimized/${baseName}`;
   const srcSet = `${imgBase}-640.jpg 640w, ${imgBase}-1024.jpg 1024w`;
   const webpSet = `${imgBase}-640.webp 640w, ${imgBase}-1024.webp 1024w`;
+  const seasonTag = getSeasonTag(product);
+  const stockTone = getStockTone(product);
+  const stockLabel = getStockLabel(product);
+  const priceLabel = Number(product.price) <= 2.5 ? 'Starter pack' : Number(product.price) >= 5 ? 'Premium tray' : 'Farmer pick';
   return `
-    <div class="product-card" data-animate="slide-left" data-animate-delay="0.06" data-category="${product.category}" data-id="${product.id}">
+    <div class="product-card ${isShopPage ? 'shop-premium-card' : ''}" data-animate="slide-left" data-animate-delay="0.06" data-category="${product.category}" data-id="${product.id}">
       <div class="product-img">
         <picture>
           <source srcset="${webpSet}" type="image/webp">
@@ -529,19 +558,29 @@ function renderProductCard(product, isShopPage = false) {
         </picture>
         <div class="product-emoji" style="display:none">${product.emoji}</div>
         <span class="product-category">${product.category}</span>
+        <span class="product-season-badge">${seasonTag}</span>
       </div>
       <div class="product-body">
+        <div class="product-chip-row">
+          <span class="product-chip ${stockTone}">${stockLabel}</span>
+          <span class="product-chip subtle">${priceLabel}</span>
+        </div>
         <h3>${product.name}</h3>
         <p>${product.description}</p>
+        <div class="product-meta-grid">
+          <div><strong>Growth</strong><span>${product.growth || 'Healthy cycle'}</span></div>
+          <div><strong>Spacing</strong><span>${product.spacing || 'Standard spacing'}</span></div>
+        </div>
         <div class="qty-control">
           <button class="qty-btn" onclick="changeQty(${product.id}, -1)">−</button>
           <input type="number" id="qty-${product.id}" class="qty-input" value="1" min="1" max="10000" oninput="updateQtyDisplay(${product.id}, this.value)">
           <button class="qty-btn" onclick="changeQty(${product.id}, 1)">+</button>
         </div>
         <div class="product-footer">
-          <div class="price-tag"><span>KES ${product.price.toFixed(2)}</span><small>/ seedling</small></div>
-          <button class="add-to-cart-btn" onclick="addToCartFromCard(${product.id})">🛒 Add</button>
+          <div class="price-tag"><span>${formatCurrency(product.price)}</span><small>/ seedling</small></div>
+          <button class="add-to-cart-btn" onclick="addToCartFromCard(${product.id})">Add to cart</button>
         </div>
+        ${isShopPage ? `<div class="product-card-actions"><button class="product-link-btn" onclick="openModal(PRODUCTS.find(p => p.id === ${product.id}))">View details</button><a class="product-link-btn whatsapp" href="https://wa.me/254715108351?text=${encodeURIComponent(`Hello Toree Farm, I would like ${product.name}.`)}" target="_blank">WhatsApp</a></div>` : ''}
       </div>
     </div>`;
 }
@@ -559,11 +598,15 @@ function renderPickupCard() {
   if (!container || !Array.isArray(PRODUCTS) || PRODUCTS.length === 0) return;
   const product = PRODUCTS[Math.floor(Math.random() * PRODUCTS.length)];
   container.innerHTML = `
-    <div class="pickup-card" data-animate="fade-scale" data-animate-delay="0.1">
-      <h3>Pick of the Day</h3>
-      <p>${product.name}</p>
-      <span class="pickup-price">KES ${product.price.toFixed(2)}</span>
-      <a class="btn btn-primary" href="${getShopPageHref()}">Shop ${product.category}</a>
+    <div class="pickup-card cinematic" data-animate="fade-scale" data-animate-delay="0.1">
+      <div class="pickup-kicker">Best for this month</div>
+      <h3>${product.name}</h3>
+      <p>Strong ${product.category} seedlings for fast establishment and clean transplanting.</p>
+      <span class="pickup-price">${formatCurrency(product.price)} <small>per seedling</small></span>
+      <div class="pickup-actions">
+        <a class="btn btn-primary" href="${getShopPageHref()}">Shop ${product.category}</a>
+        <a class="btn btn-outline" href="https://wa.me/254715108351?text=${encodeURIComponent(`Hello Toree Farm, I would like to order ${product.name}.`)}" target="_blank">Quick WhatsApp</a>
+      </div>
     </div>
   `;
 }

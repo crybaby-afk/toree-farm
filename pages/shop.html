@@ -43,14 +43,65 @@
     </div>
   </nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <h1>Our Seedling Shop</h1>
-      <p>19 premium vegetable varieties - healthy, disease-free, and ready to grow.</p>
-      <div class="breadcrumb">
-        <a href="../index.html">Home</a><span>&gt;</span>
-        <span style="color:var(--gold-light)">Shop</span>
+  <section class="page-hero premium-shop-hero">
+    <div class="container premium-shop-hero-grid">
+      <div>
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a><span>&gt;</span>
+          <span style="color:var(--gold-light)">Shop</span>
+        </div>
+        <h1>Choose seedlings like a grower, not like you are guessing.</h1>
+        <p>Explore premium trays, quick starter combinations, and seasonal picks curated for stronger transplanting and cleaner harvest planning.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20Help%20me%20choose%20the%20right%20seedlings." class="btn btn-gold" target="_blank">Get WhatsApp help</a>
+          <a href="#shop-products" class="btn btn-outline">Browse products</a>
+        </div>
       </div>
+      <div class="shop-hero-panel">
+        <span class="shop-hero-kicker">Best for this month</span>
+        <h3>Fast-moving nursery lines and cleaner planning for quarter-acre and kitchen garden buyers.</h3>
+        <div class="shop-hero-metrics">
+          <article><strong>19</strong><span>Vegetable lines</span></article>
+          <article><strong>24hr</strong><span>Fast local dispatch</span></article>
+          <article><strong>4.9/5</strong><span>Buyer confidence</span></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop-curation-band">
+    <div class="container">
+      <div class="bundle-grid">
+        <article class="bundle-card" data-animate="slide-left" data-animate-delay="0.05">
+          <span class="bundle-kicker">Starter flow</span>
+          <h3>Kitchen garden essentials</h3>
+          <p>Leafy and easy-moving seedlings for growers who want a simple first order.</p>
+          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20want%20a%20kitchen%20garden%20starter%20pack." class="btn btn-outline" target="_blank">WhatsApp starter pack</a>
+        </article>
+        <article class="bundle-card featured-bundle" data-animate="fade-scale" data-animate-delay="0.09">
+          <span class="bundle-kicker">Recommended for 1/4 acre</span>
+          <h3>Balanced production mix</h3>
+          <p>A stronger recommendation for growers who want a profitable, diverse field mix without overthinking every tray.</p>
+          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20Recommend%20a%201/4%20acre%20mix%20for%20my%20farm." class="btn btn-gold" target="_blank">Get the 1/4 acre mix</a>
+        </article>
+        <article class="bundle-card" data-animate="slide-right" data-animate-delay="0.13">
+          <span class="bundle-kicker">Same-day coordination</span>
+          <h3>Urgent restock</h3>
+          <p>For buyers who already know what they need and want the fastest route to pickup or delivery planning.</p>
+          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20need%20an%20urgent%20seedling%20restock." class="btn btn-outline" target="_blank">Start urgent order</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop-recommendations">
+    <div class="container">
+      <div class="section-header" data-animate="fade-scale" data-animate-delay="0.05">
+        <h2 class="section-title">Best for This Month</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">A curated shortlist for growers who want a faster starting point before filtering the full catalog.</p>
+      </div>
+      <div class="products-grid" id="recommended-products"></div>
     </div>
   </section>
 
@@ -150,6 +201,23 @@
         <a href="tel:+254715108351" class="btn btn-primary">Call Now</a>
         <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20need%20seedlings%20urgently." class="btn btn-whatsapp" target="_blank">WhatsApp</a>
       </div>
+    </div>
+  </section>
+
+  <section class="shop-story-strip">
+    <div class="container trust-grid">
+      <article class="trust-card photo" data-animate="slide-right" data-animate-delay="0.05">
+        <img src="../images/optimized/nursery-3-1024.jpg" alt="Seedling process and packaging at Toree Farm">
+        <div class="trust-overlay">
+          <span>Real nursery output</span>
+          <strong>Healthy trays, cleaner handling, better readiness for the field.</strong>
+        </div>
+      </article>
+      <article class="trust-card" data-animate="fade-scale" data-animate-delay="0.09">
+        <span class="trust-kicker">Premium shop rhythm</span>
+        <h3>Seasonal picks, stock-friendly guidance, and one-tap WhatsApp ordering.</h3>
+        <p>Use the filters if you want control, or jump straight into the curated packs if you want a faster decision path.</p>
+      </article>
     </div>
   </section>
 
@@ -309,6 +377,16 @@
       initScrollAnimations();
     }
 
+    function renderRecommendations() {
+      const recommended = document.getElementById('recommended-products');
+      if (!recommended || !Array.isArray(PRODUCTS)) return;
+      const picks = [...PRODUCTS]
+        .sort((a, b) => b.price - a.price)
+        .slice(0, 3);
+      recommended.innerHTML = picks.map(p => renderProductCard(p, true)).join('');
+      initScrollAnimations();
+    }
+
     function filterByCategory(cat) {
       currentFilter = cat;
       document.querySelectorAll('.filter-btn[data-cat]').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
@@ -316,10 +394,10 @@
       window.scrollTo({ top: 300, behavior: 'smooth' });
     }
 
-    function openModal(id) {
-      const p = PRODUCTS.find(x => x.id === id);
+    function openModal(productOrId) {
+      const p = typeof productOrId === 'object' ? productOrId : PRODUCTS.find(x => x.id === productOrId);
       if (!p) return;
-      modalProductId = id;
+      modalProductId = p.id;
       modalQty = 1;
       document.getElementById('modal-name').textContent = p.name;
       document.getElementById('modal-price').textContent = `KES ${p.price.toFixed(2)} per seedling`;
@@ -378,6 +456,7 @@
 
     async function initializeShop() {
       await loadProducts();
+      renderRecommendations();
       renderShop();
     }
     initializeShop();
