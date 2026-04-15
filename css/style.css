@@ -4002,3 +4002,290 @@ body:has(.contact-section) iframe {
     display: flex !important;
   }
 }
+
+/* Remaining page treatments */
+body:has(.values-section) .page-hero {
+  background:
+    radial-gradient(circle at top left, rgba(135, 182, 152, 0.16), transparent 24%),
+    linear-gradient(140deg, #08110d, #12211b 55%, #214033 100%);
+}
+
+body:has(.values-section) .about-snap,
+body:has(.values-section) .mission-vision,
+body:has(.values-section) .achievements-section,
+body:has(.values-section) .values-section,
+body:has(.values-section) .process-section,
+body:has(.values-section) .team-section,
+body:has(.values-section) .testimonials-section,
+body:has(.values-section) .faq-section {
+  background:
+    radial-gradient(circle at top, rgba(224,183,119,0.08), transparent 18%),
+    linear-gradient(180deg, #09110e, #101a15 55%, #17251f) !important;
+}
+
+body:has(.values-section) .achievement-card,
+body:has(.values-section) .value-card,
+body:has(.values-section) .process-step,
+body:has(.values-section) .team-card,
+body:has(.values-section) .testimonial-card,
+body:has(.values-section) .faq-item {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 28px !important;
+  box-shadow: 0 24px 46px rgba(0,0,0,0.24);
+  color: #f3ecdf;
+}
+
+body:has(.values-section) .value-card .icon,
+body:has(.values-section) .team-avatar,
+body:has(.values-section) .step-num {
+  background: linear-gradient(135deg, #c7924e, #e3bc7c) !important;
+  color: #101611 !important;
+  box-shadow: 0 16px 30px rgba(0,0,0,0.22);
+}
+
+body:has(.values-section) .achievement-number,
+body:has(.values-section) .section-title,
+body:has(.values-section) .team-card h4,
+body:has(.values-section) .faq-item h4 {
+  color: #fff7e8 !important;
+}
+
+body:has(.values-section) .section-subtitle,
+body:has(.values-section) .value-card p,
+body:has(.values-section) .process-step p,
+body:has(.values-section) .team-bio,
+body:has(.values-section) .testimonial-quote,
+body:has(.values-section) .faq-item p {
+  color: #d7d0c3 !important;
+}
+
+body.blog-page {
+  background:
+    radial-gradient(circle at top right, rgba(115, 160, 133, 0.12), transparent 22%),
+    linear-gradient(180deg, #09110f, #0f1915 50%, #15241e);
+}
+
+body.blog-page .blog-hero {
+  padding: 150px 0 90px;
+  background:
+    radial-gradient(circle at top, rgba(224,183,119,0.16), transparent 18%),
+    linear-gradient(140deg, #08110e, #14231b 55%, #1b3429);
+}
+
+body.blog-page .blog-grid {
+  gap: 28px;
+}
+
+body.blog-page .blog-post,
+body.blog-page .newsletter-content,
+body.blog-page .footer-section {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 30px;
+  box-shadow: 0 24px 50px rgba(0,0,0,0.25);
+}
+
+body.blog-page .blog-post {
+  overflow: hidden;
+}
+
+body.blog-page .blog-image {
+  position: relative;
+}
+
+body.blog-page .blog-category,
+body.blog-page .read-more-btn,
+body.blog-page .newsletter-form button {
+  background: linear-gradient(135deg, #c7924e, #e3bc7c) !important;
+  color: #101611 !important;
+  border-radius: 999px;
+}
+
+body.blog-page .blog-text h2,
+body.blog-page .blog-tips h3,
+body.blog-page .newsletter-content h2,
+body.blog-page .footer-section h3 {
+  color: #fff7e8 !important;
+}
+
+body.blog-page .blog-text p,
+body.blog-page .blog-meta,
+body.blog-page .blog-tips li,
+body.blog-page .newsletter-content p,
+body.blog-page .footer-section p,
+body.blog-page .footer-section a {
+  color: #d9d2c6 !important;
+}
+
+body.blog-page .blog-tips {
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+body.blog-page .newsletter-form input {
+  background: rgba(10, 18, 15, 0.78);
+  color: #f5efe2;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+}
+
+body.dashboard-page {
+  background:
+    radial-gradient(circle at top left, rgba(224,183,119,0.12), transparent 18%),
+    linear-gradient(180deg, #08110e, #101915 50%, #15231d);
+}
+
+body.dashboard-page .dashboard-hero {
+  padding: 150px 0 90px;
+  background:
+    radial-gradient(circle at right top, rgba(224,183,119,0.16), transparent 20%),
+    linear-gradient(140deg, #09110f, #15251d 55%, #1f3a2d);
+}
+
+body.dashboard-page .dashboard-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 26px 50px rgba(0,0,0,0.24);
+  overflow: hidden;
+}
+
+body.dashboard-page .card-header {
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+body.dashboard-page .card-header h3,
+body.dashboard-page .profile-details h4,
+body.dashboard-page .order-info h4,
+body.dashboard-page .tip-content h4,
+body.dashboard-page .wishlist-item h4,
+body.dashboard-page .analytics-chart h4,
+body.dashboard-page .support-link h4 {
+  color: #fff7e8 !important;
+}
+
+body.dashboard-page .profile-details p,
+body.dashboard-page .order-info p,
+body.dashboard-page .tip-content p,
+body.dashboard-page .wishlist-item p,
+body.dashboard-page .metric-label,
+body.dashboard-page .support-link p,
+body.dashboard-page .view-all {
+  color: #d9d2c6 !important;
+}
+
+body.dashboard-page .profile-avatar,
+body.dashboard-page .tip-icon,
+body.dashboard-page .support-icon {
+  background: linear-gradient(135deg, #c7924e, #e3bc7c);
+  color: #101611;
+  border-radius: 22px;
+  box-shadow: 0 16px 30px rgba(0,0,0,0.2);
+}
+
+body.dashboard-page .stat-item,
+body.dashboard-page .order-item,
+body.dashboard-page .tip-item,
+body.dashboard-page .wishlist-item,
+body.dashboard-page .metric,
+body.dashboard-page .support-link {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 22px;
+}
+
+body.dashboard-page .chart-bar {
+  background: linear-gradient(180deg, #e3bc7c, #8eb693) !important;
+  color: #101611 !important;
+  border-radius: 16px 16px 8px 8px;
+}
+
+body:has(.cart-section) .page-hero {
+  background:
+    radial-gradient(circle at top right, rgba(224,183,119,0.14), transparent 18%),
+    linear-gradient(140deg, #08110e, #13221b 55%, #1e382c);
+}
+
+body:has(.cart-section) .cart-section {
+  background:
+    radial-gradient(circle at top left, rgba(130, 179, 149, 0.1), transparent 20%),
+    linear-gradient(180deg, #09110f, #101915 50%, #15231d);
+}
+
+body:has(.cart-section) .cart-items-panel,
+body:has(.cart-section) .cart-summary-panel,
+body:has(.cart-section) .empty-cart {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 26px 50px rgba(0,0,0,0.24);
+}
+
+body:has(.cart-section) .cart-item {
+  border-radius: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+body:has(.cart-section) .cart-item-name,
+body:has(.cart-section) .cart-summary-panel h3,
+body:has(.cart-section) .summary-total .amount,
+body:has(.cart-section) .empty-cart h3 {
+  color: #fff7e8 !important;
+}
+
+body:has(.cart-section) .cart-item-price,
+body:has(.cart-section) .checkout-note,
+body:has(.cart-section) .summary-row,
+body:has(.cart-section) .empty-cart p {
+  color: #d7d0c3 !important;
+}
+
+body:has(.cart-section) .clear-cart-btn,
+body:has(.cart-section) .checkout-btn,
+body:has(.cart-section) .empty-cart .btn {
+  border-radius: 18px;
+}
+
+body.blog-page .logo img,
+body.dashboard-page .logo img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.22));
+}
+
+body.blog-page .cart-link,
+body.dashboard-page .cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #173328, #2c4e3f);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #f5efe2 !important;
+}
+
+body.blog-page .cart-link:hover,
+body.dashboard-page .cart-link:hover {
+  background: linear-gradient(135deg, #c7924e, #e3bc7c);
+  color: #101611 !important;
+}
+
+@media (max-width: 900px) {
+  body.blog-page .nav-links,
+  body.dashboard-page .nav-links {
+    align-items: stretch;
+  }
+
+  body.blog-page .cart-link,
+  body.dashboard-page .cart-link {
+    justify-content: center;
+    width: 100%;
+  }
+}
