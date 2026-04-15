@@ -3454,3 +3454,405 @@ body:has(.filter-section) .modal-close {
     grid-template-columns: 1fr;
   }
 }
+
+/* Focused redesign: homepage, gallery, contact */
+body:has(.hero) .hero {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at top right, rgba(211, 162, 91, 0.2), transparent 24%),
+    radial-gradient(circle at left center, rgba(97, 152, 121, 0.14), transparent 28%),
+    linear-gradient(145deg, #08110e 0%, #13231c 36%, #1c342a 100%);
+}
+
+body:has(.hero) .hero-bg {
+  filter: brightness(0.34) saturate(0.9) contrast(1.05);
+  transform: scale(1.05);
+}
+
+body:has(.hero) .hero-overlay {
+  background:
+    linear-gradient(120deg, rgba(7, 13, 11, 0.88), rgba(16, 29, 24, 0.72) 45%, rgba(27, 46, 38, 0.5) 100%);
+}
+
+body:has(.hero) .hero-content {
+  max-width: 760px;
+}
+
+body:has(.hero) .hero-badge {
+  background: rgba(244, 201, 128, 0.14);
+  border-color: rgba(244, 201, 128, 0.34);
+  color: #f7deb2;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22);
+}
+
+body:has(.hero) .hero h1 {
+  letter-spacing: -0.04em;
+  max-width: 10ch;
+}
+
+body:has(.hero) .hero p {
+  max-width: 58ch;
+  color: rgba(239, 233, 220, 0.88);
+}
+
+body:has(.hero) .hero-buttons .btn,
+body:has(.hero) .cta-banner .btn,
+body:has(.contact-section) .btn,
+body:has(.gallery-section) .btn,
+body:has(.hero) .nav-cart-btn,
+body:has(.gallery-section) .nav-cart-btn,
+body:has(.contact-section) .nav-cart-btn {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+}
+
+body:has(.hero) .btn-primary,
+body:has(.hero) .btn-gold,
+body:has(.gallery-section) .btn-primary,
+body:has(.contact-section) .btn-primary {
+  background: linear-gradient(135deg, #b98449, #e0b777);
+  color: #101611 !important;
+}
+
+body:has(.hero) .btn-outline,
+body:has(.hero) .btn-whatsapp,
+body:has(.gallery-section) .btn-whatsapp,
+body:has(.contact-section) .btn-whatsapp {
+  background: linear-gradient(135deg, #163328, #284b3c) !important;
+  color: #f5efe2 !important;
+}
+
+body:has(.hero) .quick-nav {
+  gap: 12px;
+  padding: 14px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 24px 46px rgba(0,0,0,0.28);
+  backdrop-filter: blur(18px);
+}
+
+body:has(.hero) .quick-nav a {
+  background: rgba(255,255,255,0.05);
+  color: #ebe1cf;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+body:has(.hero) .quick-nav a:hover {
+  background: linear-gradient(135deg, rgba(185,132,73,0.26), rgba(60,100,83,0.35));
+  color: #fff;
+}
+
+body:has(.hero) .hero-stats,
+body:has(.hero) .social-proof-grid,
+body:has(.hero) .section-pedestal,
+body:has(.gallery-section) .gallery-stats,
+body:has(.contact-section) .contact-grid,
+body:has(.contact-section) .map-section {
+  position: relative;
+  z-index: 1;
+}
+
+body:has(.hero) .hero-stat,
+body:has(.hero) .proof-item,
+body:has(.gallery-section) .stat-item {
+  min-width: 150px;
+  padding: 18px 20px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 38px rgba(0,0,0,0.24);
+  backdrop-filter: blur(14px);
+}
+
+body:has(.hero) .featured,
+body:has(.hero) .about-snap,
+body:has(.hero) .mission-vision,
+body:has(.hero) .testimonials,
+body:has(.hero) .social-proof-section {
+  background:
+    radial-gradient(circle at top, rgba(214, 164, 90, 0.06), transparent 20%),
+    linear-gradient(180deg, #0a120f, #101a16 55%, #14231d);
+}
+
+body:has(.hero) .why-us {
+  background:
+    radial-gradient(circle at top left, rgba(123, 176, 144, 0.08), transparent 22%),
+    linear-gradient(180deg, #0b1411, #0e1915 55%, #121f1a);
+}
+
+body:has(.hero) .why-card,
+body:has(.hero) .mv-card,
+body:has(.hero) .testi-card,
+body:has(.hero) .about-snap-img,
+body:has(.hero) .about-snap-text {
+  border-radius: 28px;
+}
+
+body:has(.hero) .why-card,
+body:has(.hero) .mv-card,
+body:has(.hero) .testi-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 46px rgba(0,0,0,0.24);
+}
+
+body:has(.hero) .why-icon,
+body:has(.contact-section) .contact-icon,
+body:has(.hero) .mv-icon,
+body:has(.contact-section) .map-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  min-height: 52px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b98449, #e0b777);
+  color: #111712;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 30px rgba(0,0,0,0.22);
+}
+
+body:has(.hero) .about-snap-grid {
+  gap: 28px;
+}
+
+body:has(.hero) .about-snap-text {
+  padding: 34px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 46px rgba(0,0,0,0.24);
+}
+
+body:has(.hero) .cta-banner,
+body:has(.gallery-section) .cta-banner {
+  background:
+    radial-gradient(circle at right top, rgba(224,183,119,0.16), transparent 24%),
+    linear-gradient(135deg, #0c1713, #173127 50%, #244438 100%);
+}
+
+body:has(.gallery-section) .page-hero,
+body:has(.contact-section) .page-hero {
+  padding: 150px 0 100px;
+  background:
+    radial-gradient(circle at top, rgba(224,183,119,0.14), transparent 20%),
+    linear-gradient(140deg, #08110e, #13231b 55%, #1c3429 100%);
+}
+
+body:has(.gallery-section) .page-hero::before,
+body:has(.contact-section) .page-hero::before {
+  opacity: 0.14;
+  filter: grayscale(0.15) contrast(1.1);
+}
+
+body:has(.gallery-section) .gallery-section {
+  background:
+    radial-gradient(circle at top right, rgba(224,183,119,0.08), transparent 18%),
+    linear-gradient(180deg, #08110e, #0f1a16 45%, #14231c 100%);
+}
+
+body:has(.gallery-section) .gallery-header,
+body:has(.contact-section) .contact-grid,
+body:has(.contact-section) .map-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+body:has(.gallery-section) .gallery-header {
+  padding: 32px;
+  border-radius: 30px;
+  margin-bottom: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 26px 48px rgba(0,0,0,0.26);
+}
+
+body:has(.gallery-section) .gallery-filter-btn {
+  min-width: 132px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  box-shadow: 0 18px 34px rgba(0,0,0,0.2);
+}
+
+body:has(.gallery-section) .gallery-filter-btn .filter-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body:has(.gallery-section) .gallery-filter-btn.active {
+  background: linear-gradient(135deg, #b98449, #e0b777);
+  border-color: rgba(255,255,255,0.16);
+  color: #111712;
+}
+
+body:has(.gallery-section) .gallery-grid {
+  gap: 22px;
+}
+
+body:has(.gallery-section) .gallery-item,
+body:has(.gallery-section) .gallery-card,
+body:has(.gallery-section) .gallery-grid > div {
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+body:has(.gallery-section) .gallery-nav .nav-btn {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  color: #efe3cf;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+}
+
+body:has(.gallery-section) .lightbox-close {
+  background: rgba(12, 20, 17, 0.82);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+body:has(.contact-section) .contact-section {
+  background:
+    radial-gradient(circle at top left, rgba(224,183,119,0.08), transparent 20%),
+    linear-gradient(180deg, #09110f, #0f1915 50%, #15241d);
+}
+
+body:has(.contact-section) .contact-grid {
+  gap: 28px;
+}
+
+body:has(.contact-section) .contact-info-panel {
+  display: grid;
+  gap: 18px;
+}
+
+body:has(.contact-section) .contact-info-card,
+body:has(.contact-section) .contact-form-panel,
+body:has(.contact-section) .map-wrap,
+body:has(.contact-section) .map-placeholder {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 26px 48px rgba(0,0,0,0.26);
+  border-radius: 28px;
+}
+
+body:has(.contact-section) .contact-info-card,
+body:has(.contact-section) .contact-form-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+body:has(.contact-section) .contact-info-card::before,
+body:has(.contact-section) .contact-form-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255,255,255,0.05), transparent 50%);
+  pointer-events: none;
+}
+
+body:has(.contact-section) .contact-info-card h4,
+body:has(.contact-section) .contact-form-panel h3,
+body:has(.contact-section) .map-section .section-title,
+body:has(.gallery-section) .section-title,
+body:has(.gallery-section) .page-hero h1,
+body:has(.contact-section) .page-hero h1 {
+  color: #fff7e8;
+}
+
+body:has(.contact-section) .contact-info-card p,
+body:has(.contact-section) .contact-info-card a,
+body:has(.contact-section) .contact-form-panel label,
+body:has(.contact-section) .contact-form-panel p,
+body:has(.contact-section) .page-hero p,
+body:has(.gallery-section) .page-hero p,
+body:has(.gallery-section) .section-subtitle {
+  color: #d8d2c5;
+}
+
+body:has(.contact-section) input,
+body:has(.contact-section) textarea,
+body:has(.contact-section) select {
+  background: rgba(10, 18, 15, 0.72) !important;
+  color: #f5f1e7 !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 18px !important;
+}
+
+body:has(.contact-section) input::placeholder,
+body:has(.contact-section) textarea::placeholder {
+  color: #a9afa9;
+}
+
+body:has(.contact-section) iframe {
+  border-radius: 28px;
+  filter: saturate(0.82) contrast(0.96) brightness(0.92);
+}
+
+@media (max-width: 1024px) {
+  body:has(.hero) .hero h1 {
+    max-width: none;
+  }
+
+  body:has(.contact-section) .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  body:has(.hero) .hero {
+    min-height: auto;
+    padding-top: 110px;
+    padding-bottom: 72px;
+  }
+
+  body:has(.hero) .quick-nav {
+    border-radius: 22px;
+    justify-content: center;
+  }
+
+  body:has(.hero) .hero-stats,
+  body:has(.hero) .social-proof-grid,
+  body:has(.gallery-section) .gallery-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  body:has(.gallery-section) .gallery-header,
+  body:has(.contact-section) .contact-form-panel,
+  body:has(.contact-section) .contact-info-card,
+  body:has(.contact-section) .map-wrap {
+    border-radius: 22px;
+  }
+
+  body:has(.gallery-section) .gallery-filter-btn {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 640px) {
+  body:has(.hero) .hero-stats,
+  body:has(.hero) .social-proof-grid,
+  body:has(.gallery-section) .gallery-stats {
+    grid-template-columns: 1fr;
+  }
+
+  body:has(.gallery-section) .page-hero,
+  body:has(.contact-section) .page-hero {
+    padding: 130px 0 80px;
+  }
+}
