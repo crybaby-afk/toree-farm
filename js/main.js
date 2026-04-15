@@ -333,8 +333,11 @@ function initNav() {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   if (hamburger && navLinks) {
+    hamburger.setAttribute('aria-expanded', 'false');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.contains('open');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
     });
   }
   // Mark active page
@@ -343,6 +346,20 @@ function initNav() {
     const href = link.getAttribute('href');
     if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
       link.classList.add('active');
+    }
+    link.addEventListener('click', () => {
+      if (navLinks && hamburger) {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!navLinks || !hamburger) return;
+    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
     }
   });
   updateCartBadge();
