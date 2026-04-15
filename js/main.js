@@ -470,6 +470,41 @@ function initScrollAnimations() {
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
+function initPagePolish() {
+  document.body.classList.add('page-enter');
+
+  const loader = document.createElement('div');
+  loader.className = 'page-loader';
+  loader.innerHTML = `
+    <div class="page-loader-mark">
+      <span class="page-loader-title">Toree Farm</span>
+      <span class="page-loader-subtitle">Preparing healthy starts</span>
+    </div>
+  `;
+  document.body.appendChild(loader);
+
+  requestAnimationFrame(() => {
+    document.body.classList.add('page-ready');
+    window.setTimeout(() => {
+      loader.classList.add('done');
+      window.setTimeout(() => loader.remove(), 500);
+    }, 380);
+  });
+
+  const hero = document.querySelector('.story-hero, .premium-shop-hero');
+  if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const layers = hero.querySelectorAll('.hero-bg, .hero-parallax-orb, .hero-story-card, .shop-hero-panel');
+  window.addEventListener('scroll', () => {
+    const rect = hero.getBoundingClientRect();
+    const progress = Math.max(-1, Math.min(1, rect.top / window.innerHeight));
+    layers.forEach((layer, index) => {
+      const depth = (index + 1) * 8;
+      layer.style.transform = `translate3d(0, ${progress * depth}px, 0)`;
+    });
+  }, { passive: true });
+}
+
 /* ========================================
    Accessibility helpers: focus trap + global key handling
    ======================================== */
@@ -644,6 +679,7 @@ function addToCartFromCard(id) {
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initMobileQuickNav();
+  initPagePolish();
   initScrollAnimations();
   renderGallery();
   // Register service worker for PWA
