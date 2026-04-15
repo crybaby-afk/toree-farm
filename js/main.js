@@ -381,6 +381,17 @@ function initMobileQuickNav() {
     'About Us': 7
   };
 
+  const iconMap = {
+    Home: 'Home',
+    Shop: 'Shop',
+    Gallery: 'Pics',
+    Contact: 'Call',
+    Blog: 'Blog',
+    'My Account': 'You',
+    About: 'Info',
+    'About Us': 'Info'
+  };
+
   const links = Array.from(navLinks.querySelectorAll('a'))
     .map((link) => ({
       href: link.getAttribute('href'),
@@ -399,7 +410,8 @@ function initMobileQuickNav() {
 
   quickNav.innerHTML = links.map((link) => {
     const label = link.label === 'My Account' ? 'Account' : link.label.replace('About Us', 'About');
-    return `<a href="${link.href}" class="${link.active ? 'active' : ''}">${label}</a>`;
+    const icon = iconMap[link.label] || 'Go';
+    return `<a href="${link.href}" class="${link.active ? 'active' : ''}"><span class="mobile-quick-icon">${icon}</span><span class="mobile-quick-label">${label}</span></a>`;
   }).join('');
 
   nav.insertAdjacentElement('afterend', quickNav);
