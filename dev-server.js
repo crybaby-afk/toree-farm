@@ -25,20 +25,9 @@ const mimeTypes = {
   '.woff2': 'font/woff2',
 };
 
-const clients = new Set();
-let reloadTimer = null;
-const reloadableExtensions = new Set(['.html', '.css', '.js', '.json']);
-const ignoredFragments = ['.git', '.tmp', '.swp', '.crdownload', '~$', 'OneDrive'];
-
-const liveReloadSnippet = `
+const disableCachingSnippet = `
 <script>
 (() => {
-  const protocol = location.protocol === 'https:' ? 'https' : 'http';
-  const source = new EventSource(protocol + '://' + location.host + '/__livereload');
-  source.addEventListener('reload', () => window.location.reload());
-  source.onerror = () => {
-    console.warn('Live reload connection interrupted; waiting to reconnect.');
-  };
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(registrations => {
       registrations.forEach(registration => registration.unregister());
@@ -50,29 +39,17 @@ const liveReloadSnippet = `
 })();
 </script>`;
 
-function sendReload() {
-  for (const client of clients) {
-    client.write('event: reload\\n');
-    client.write('data: now\\n\\n');
-  }
-}
-
-function scheduleReload() {
-  clearTimeout(reloadTimer);
-  reloadTimer = setTimeout(sendReload, 120);
-}
-
 function safeJoin(base, requestedPath) {
   const resolved = path.resolve(base, `.${requestedPath}`);
   return resolved.startsWith(base) ? resolved : null;
 }
 
 function injectLiveReload(html) {
-  if (html.includes('/__livereload')) return html;
+  if (html.includes('navigator.serviceWorker.getRegistrations')) return html;
   if (html.includes('</body>')) {
-    return html.replace('</body>', `${liveReloadSnippet}</body>`);
+    return html.replace('</body>', `${disableCachingSnippet}</body>`);
   }
-  return `${html}${liveReloadSnippet}`;
+  return `${html}${disableCachingSnippet}`;
 }
 
 function serveFile(filePath, res) {
@@ -106,18 +83,6 @@ function serveFile(filePath, res) {
 const server = http.createServer((req, res) => {
   const reqUrl = new URL(req.url, `http://${req.headers.host}`);
 
-  if (reqUrl.pathname === '/__livereload') {
-    res.writeHead(200, {
-      'Content-Type': 'text/event-stream',
-      'Cache-Control': 'no-store',
-      Connection: 'keep-alive',
-    });
-    res.write('\\n');
-    clients.add(res);
-    req.on('close', () => clients.delete(res));
-    return;
-  }
-
   let pathname = decodeURIComponent(reqUrl.pathname);
   if (pathname === '/') pathname = '/index.html';
 
@@ -134,14 +99,6 @@ const server = http.createServer((req, res) => {
     }
     serveFile(filePath, res);
   });
-});
-
-fs.watch(root, { recursive: true }, (eventType, filename) => {
-  if (!filename) return;
-  if (ignoredFragments.some(fragment => filename.includes(fragment))) return;
-  const ext = path.extname(filename).toLowerCase();
-  if (!reloadableExtensions.has(ext)) return;
-  scheduleReload();
 });
 
 function startServer(port) {
