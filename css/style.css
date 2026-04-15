@@ -4435,3 +4435,162 @@ body.dashboard-page .cart-link:hover {
     width: 100%;
   }
 }
+
+/* Final mobile navigation and contrast overrides */
+.navbar {
+  overflow: visible !important;
+}
+
+.nav-inner {
+  position: relative;
+}
+
+.nav-logo,
+.hamburger,
+.nav-cart-btn {
+  position: relative;
+  z-index: 1002;
+}
+
+.section-subtitle,
+.about-snap-text p,
+.why-card p,
+.contact-info-card p,
+.faq-item p,
+.footer-section p,
+.footer-section a,
+.footer-bottom,
+.blog-text p,
+.blog-meta,
+.dashboard-card p,
+.order-info p,
+.tip-content p,
+.support-link p,
+.metric-label {
+  color: #dfe7de !important;
+}
+
+.product-body h3,
+.contact-info-card h4,
+.faq-item h4,
+.blog-text h2,
+.dashboard-card h3,
+.dashboard-card h4,
+.footer-section h3 {
+  color: #fff8eb !important;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0;
+  }
+
+  .nav-inner {
+    min-height: 78px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    min-width: 0;
+    max-width: calc(100% - 124px);
+    gap: 8px;
+  }
+
+  .nav-logo img {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .nav-logo-text {
+    min-width: 0;
+  }
+
+  .nav-logo-text .name {
+    display: block;
+    font-size: 0.88rem !important;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .nav-logo-text .tagline {
+    display: block;
+    font-size: 0.56rem !important;
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-links {
+    position: fixed !important;
+    top: 86px !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-height: calc(100vh - 108px);
+    overflow-y: auto;
+    padding: 16px !important;
+    border-radius: 24px !important;
+    background: linear-gradient(180deg, rgba(8, 13, 11, 0.98), rgba(18, 30, 25, 0.97)) !important;
+    border: 1px solid rgba(231, 208, 161, 0.16) !important;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.42) !important;
+    z-index: 1001;
+  }
+
+  .nav-links a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 1rem !important;
+    color: #f7f1e4 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: linear-gradient(135deg, #d2a25d, #edcf97) !important;
+    color: #111712 !important;
+  }
+
+  .nav-cart-btn {
+    min-width: 74px;
+    justify-content: center;
+    font-size: 0.92rem !important;
+  }
+
+  .hamburger {
+    display: inline-flex !important;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .nav-inner {
+    min-height: 74px;
+  }
+
+  .nav-logo {
+    max-width: calc(100% - 112px);
+  }
+
+  .nav-logo-text .name {
+    font-size: 0.8rem !important;
+  }
+
+  .nav-logo-text .tagline {
+    font-size: 0.52rem !important;
+  }
+
+  .nav-links {
+    top: 82px !important;
+    left: 10px !important;
+    right: 10px !important;
+    border-radius: 20px !important;
+  }
+}
