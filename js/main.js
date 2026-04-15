@@ -412,55 +412,9 @@ function initNav() {
 }
 
 function initMobileQuickNav() {
-  const nav = document.querySelector('.navbar');
-  const navLinks = document.querySelector('.nav-links');
-  if (!nav || !navLinks || document.querySelector('.mobile-quick-nav')) return;
-
-  const priorityMap = {
-    Home: 1,
-    Shop: 2,
-    Gallery: 3,
-    Contact: 4,
-    Blog: 5,
-    'My Account': 6,
-    About: 7,
-    'About Us': 7
-  };
-
-  const iconMap = {
-    Home: 'Home',
-    Shop: 'Shop',
-    Gallery: 'Pics',
-    Contact: 'Call',
-    Blog: 'Blog',
-    'My Account': 'You',
-    About: 'Info',
-    'About Us': 'Info'
-  };
-
-  const links = Array.from(navLinks.querySelectorAll('a'))
-    .map((link) => ({
-      href: link.getAttribute('href'),
-      label: link.textContent.trim(),
-      active: link.classList.contains('active')
-    }))
-    .filter((link) => link.href && link.label)
-    .sort((a, b) => (priorityMap[a.label] || 99) - (priorityMap[b.label] || 99))
-    .slice(0, 5);
-
-  if (!links.length) return;
-
-  const quickNav = document.createElement('div');
-  quickNav.className = 'mobile-quick-nav';
-  quickNav.setAttribute('aria-label', 'Quick navigation');
-
-  quickNav.innerHTML = links.map((link) => {
-    const label = link.label === 'My Account' ? 'Account' : link.label.replace('About Us', 'About');
-    const icon = iconMap[link.label] || 'Go';
-    return `<a href="${link.href}" class="${link.active ? 'active' : ''}"><span class="mobile-quick-icon">${icon}</span><span class="mobile-quick-label">${label}</span></a>`;
-  }).join('');
-
-  nav.insertAdjacentElement('afterend', quickNav);
+  // Disabled intentionally: the extra fixed quick-nav was colliding with the
+  // main mobile header and creating broken spacing on phones.
+  return;
 }
 
 // ---- SCROLL ANIMATIONS ----
@@ -599,7 +553,6 @@ function renderProductCard(product, isShopPage = false) {
   const pathPrefix = isShopPage ? '../' : '';
   const imgBase = `${pathPrefix}images/optimized/${baseName}`;
   const srcSet = `${imgBase}-640.jpg 640w, ${imgBase}-1024.jpg 1024w`;
-  const webpSet = `${imgBase}-640.webp 640w, ${imgBase}-1024.webp 1024w`;
   const seasonTag = getSeasonTag(product);
   const stockTone = getStockTone(product);
   const stockLabel = getStockLabel(product);
@@ -607,12 +560,8 @@ function renderProductCard(product, isShopPage = false) {
   return `
     <div class="product-card ${isShopPage ? 'shop-premium-card' : ''}" data-animate="slide-left" data-animate-delay="0.06" data-category="${product.category}" data-id="${product.id}">
       <div class="product-img">
-        <picture>
-          <source srcset="${webpSet}" type="image/webp">
-          <source srcset="${srcSet}" type="image/jpeg">
-          <img src="${imgBase}-640.jpg" alt="${product.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        </picture>
-        <div class="product-emoji" style="display:none">${product.emoji}</div>
+        <img src="${imgBase}-640.jpg" srcset="${srcSet}" sizes="${isShopPage ? '(max-width: 900px) 100vw, 33vw' : '(max-width: 900px) 100vw, 25vw'}" alt="${product.name}" loading="lazy" decoding="async" onerror="this.onerror=null; this.closest('.product-img').classList.add('image-missing');">
+        <div class="product-emoji" aria-hidden="true">${product.emoji}</div>
         <span class="product-category">${product.category}</span>
         <span class="product-season-badge">${seasonTag}</span>
       </div>
@@ -628,7 +577,7 @@ function renderProductCard(product, isShopPage = false) {
           <div><strong>Spacing</strong><span>${product.spacing || 'Standard spacing'}</span></div>
         </div>
         <div class="qty-control">
-          <button class="qty-btn" onclick="changeQty(${product.id}, -1)">−</button>
+          <button class="qty-btn" onclick="changeQty(${product.id}, -1)">-</button>
           <input type="number" id="qty-${product.id}" class="qty-input" value="1" min="1" max="10000" oninput="updateQtyDisplay(${product.id}, this.value)">
           <button class="qty-btn" onclick="changeQty(${product.id}, 1)">+</button>
         </div>
