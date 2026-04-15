@@ -365,6 +365,46 @@ function initNav() {
   updateCartBadge();
 }
 
+function initMobileQuickNav() {
+  const nav = document.querySelector('.navbar');
+  const navLinks = document.querySelector('.nav-links');
+  if (!nav || !navLinks || document.querySelector('.mobile-quick-nav')) return;
+
+  const priorityMap = {
+    Home: 1,
+    Shop: 2,
+    Gallery: 3,
+    Contact: 4,
+    Blog: 5,
+    'My Account': 6,
+    About: 7,
+    'About Us': 7
+  };
+
+  const links = Array.from(navLinks.querySelectorAll('a'))
+    .map((link) => ({
+      href: link.getAttribute('href'),
+      label: link.textContent.trim(),
+      active: link.classList.contains('active')
+    }))
+    .filter((link) => link.href && link.label)
+    .sort((a, b) => (priorityMap[a.label] || 99) - (priorityMap[b.label] || 99))
+    .slice(0, 5);
+
+  if (!links.length) return;
+
+  const quickNav = document.createElement('div');
+  quickNav.className = 'mobile-quick-nav';
+  quickNav.setAttribute('aria-label', 'Quick navigation');
+
+  quickNav.innerHTML = links.map((link) => {
+    const label = link.label === 'My Account' ? 'Account' : link.label.replace('About Us', 'About');
+    return `<a href="${link.href}" class="${link.active ? 'active' : ''}">${label}</a>`;
+  }).join('');
+
+  nav.insertAdjacentElement('afterend', quickNav);
+}
+
 // ---- SCROLL ANIMATIONS ----
 function initScrollAnimations() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -548,6 +588,7 @@ function addToCartFromCard(id) {
 // ---- INIT ON DOM READY ----
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
+  initMobileQuickNav();
   initScrollAnimations();
   renderGallery();
   // Register service worker for PWA
