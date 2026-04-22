@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop - Toree Farm & Nursery Ltd</title>
+  <title>Shop Seedlings | Toree Farm & Nursery Ltd</title>
+  <meta name="description" content="Buy vegetable seedlings directly from Toree Farm in Litein, Kenya. Browse prices, filter by crop, add to cart, or order on WhatsApp.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://toreefarm.com/pages/shop.html">
+  <meta property="og:title" content="Shop Seedlings | Toree Farm & Nursery Ltd">
+  <meta property="og:description" content="Shop healthy vegetable seedlings from Toree Farm. Straight to browsing, filtering, and buying.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toreefarm.com/pages/shop.html">
+  <meta property="og:image" content="https://toreefarm.com/images/optimized/nursery-banner-1024.jpg">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../images/optimized/logo-icon-640.webp" type="image/webp">
 </head>
@@ -52,209 +60,76 @@
   </nav>
 
   <section class="page-hero premium-shop-hero">
-    <div class="container premium-shop-hero-grid">
+    <div class="container shop-hero-simple">
       <div>
         <div class="breadcrumb">
           <a href="../index.html">Home</a><span>&gt;</span>
           <span style="color:var(--gold-light)">Shop</span>
         </div>
-        <h1>Choose seedlings like a grower, not like you are guessing.</h1>
-        <p>Explore premium trays, quick starter combinations, and seasonal picks curated for stronger transplanting and cleaner harvest planning.</p>
+        <h1>Buy seedlings directly.</h1>
+        <p>Search, filter, compare prices, and add to cart without the extra noise.</p>
         <div class="hero-buttons">
-          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20Help%20me%20choose%20the%20right%20seedlings." class="btn btn-gold" target="_blank">Get WhatsApp help</a>
-          <a href="#shop-products" class="btn btn-outline">Browse products</a>
-        </div>
-      </div>
-      <div class="shop-hero-panel">
-        <span class="shop-hero-kicker">Best for this month</span>
-        <h3>Fast-moving nursery lines and cleaner planning for quarter-acre and kitchen garden buyers.</h3>
-        <div class="shop-hero-metrics">
-          <article><strong>19</strong><span>Vegetable lines</span></article>
-          <article><strong>24hr</strong><span>Fast local dispatch</span></article>
-          <article><strong>4.9/5</strong><span>Buyer confidence</span></article>
+          <a href="#shop-products" class="btn btn-gold">Start shopping</a>
+          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20want%20to%20order%20seedlings." class="btn btn-outline" target="_blank">Order on WhatsApp</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="shop-curation-band">
+  <section class="shop-utility-strip">
     <div class="container">
-      <div class="bundle-grid">
-        <article class="bundle-card" data-animate="slide-left" data-animate-delay="0.05">
-          <span class="bundle-kicker">Starter flow</span>
-          <h3>Kitchen garden essentials</h3>
-          <p>Leafy and easy-moving seedlings for growers who want a simple first order.</p>
-          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20want%20a%20kitchen%20garden%20starter%20pack." class="btn btn-outline" target="_blank">WhatsApp starter pack</a>
-        </article>
-        <article class="bundle-card featured-bundle" data-animate="fade-scale" data-animate-delay="0.09">
-          <span class="bundle-kicker">Recommended for 1/4 acre</span>
-          <h3>Balanced production mix</h3>
-          <p>A stronger recommendation for growers who want a profitable, diverse field mix without overthinking every tray.</p>
-          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20Recommend%20a%201/4%20acre%20mix%20for%20my%20farm." class="btn btn-gold" target="_blank">Get the 1/4 acre mix</a>
-        </article>
-        <article class="bundle-card" data-animate="slide-right" data-animate-delay="0.13">
-          <span class="bundle-kicker">Same-day coordination</span>
-          <h3>Urgent restock</h3>
-          <p>For buyers who already know what they need and want the fastest route to pickup or delivery planning.</p>
-          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20need%20an%20urgent%20seedling%20restock." class="btn btn-outline" target="_blank">Start urgent order</a>
-        </article>
+      <div class="shop-utility-grid">
+        <article><strong>19 varieties</strong><span>Ready to browse</span></article>
+        <article><strong>KES 2+</strong><span>Starting price</span></article>
+        <article><strong>24hr</strong><span>Fast local dispatch</span></article>
       </div>
     </div>
   </section>
 
-  <section class="shop-recommendations">
+  <section class="shop-toolbar-section">
     <div class="container">
-      <div class="section-header" data-animate="fade-scale" data-animate-delay="0.05">
-        <h2 class="section-title">Best for This Month</h2>
-        <div class="gold-line"></div>
-        <p class="section-subtitle">A curated shortlist for growers who want a faster starting point before filtering the full catalog.</p>
-      </div>
-      <div class="products-grid" id="recommended-products"></div>
-    </div>
-  </section>
-
-  <section class="filter-section">
-    <div class="container">
-      <div class="filter-layout">
-        <aside class="filter-sidebar">
-          <h3>Filter Products</h3>
+      <div class="shop-toolbar-card">
+        <div class="shop-toolbar-copy">
+          <span class="shop-command-kicker">Buy faster</span>
+          <h2>Everything you need to choose and checkout is here.</h2>
+          <p>Use search, category, and price filters, then go straight to cart or WhatsApp.</p>
+        </div>
+        <div class="shop-toolbar-grid">
           <div class="search-bar">
             <span>Search</span>
             <input type="text" id="search-input" placeholder="Search seedlings..." oninput="filterProducts()">
           </div>
-          <div class="filter-group">
-            <h4>Categories</h4>
+          <div class="filter-group filter-group-inline">
+            <h4>Category</h4>
             <button class="filter-btn active" data-cat="all">All Varieties</button>
             <button class="filter-btn" data-cat="leafy">Leafy Vegetables</button>
             <button class="filter-btn" data-cat="fruit">Fruit Vegetables</button>
             <button class="filter-btn" data-cat="brassica">Brassicas</button>
             <button class="filter-btn" data-cat="specialty">Specialty Crops</button>
           </div>
-          <div class="filter-group">
-            <h4>Price Range</h4>
+          <div class="filter-group filter-group-inline">
+            <h4>Price</h4>
             <button class="filter-btn active-price" data-price="all">All Prices</button>
             <button class="filter-btn" data-price="low">Under KES 3</button>
             <button class="filter-btn" data-price="mid">KES 3-5</button>
             <button class="filter-btn" data-price="high">KES 5+</button>
           </div>
-
-          <div class="weather-widget">
-            <h4>Today's Weather</h4>
-            <div class="weather-info">
-              <div class="weather-main">
-                <span class="temp" id="weather-temp">24°C</span>
-                <span class="condition" id="weather-condition">Sunny</span>
-              </div>
-              <div class="weather-details">
-                <span class="humidity" id="weather-humidity">65% Humidity</span>
-                <span class="wind" id="weather-wind">10 km/h Wind</span>
-              </div>
-            </div>
-            <div class="planting-advice" id="planting-advice">
-              <p>Perfect conditions for transplanting.</p>
-            </div>
+          <div class="shop-bulk-card">
+            <strong>Bulk or urgent order?</strong>
+            <p>Talk to us directly for bigger quantities, same-day coordination, or field advice.</p>
+            <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20want%20to%20place%20a%20bulk%20order." class="btn btn-whatsapp" target="_blank">WhatsApp bulk order</a>
           </div>
-
-          <div style="margin-top: 20px; padding: 16px; background: var(--green-pale); border-radius: var(--radius-sm);">
-            <p style="font-size: 0.8rem; color: var(--text-mid); line-height: 1.6;">
-              <strong>Need bulk orders?</strong><br>
-              WhatsApp us for special pricing on large quantities.
-            </p>
-            <a href="https://wa.me/254715108351" class="btn btn-whatsapp" style="margin-top:12px; font-size:0.82rem; padding:8px 16px;" target="_blank">Chat Now</a>
-          </div>
-
-          <div class="crop-calculator" style="margin-top:20px; padding:20px; background:linear-gradient(135deg,#e8f8ed,#d2eccf); border-radius:var(--radius); border:1px solid rgba(45,106,65,.25);">
-            <h4>Seedling & Fertilizer Calculator</h4>
-            <p style="font-size:0.85rem; color:#2d5a27; margin-bottom:12px;">Enter area and select crop to estimate seed requirement.</p>
-            <label for="calc-area" style="font-weight:700; color:#1b4332;">Area (m²)</label>
-            <input id="calc-area" type="number" min="1" step="0.1" placeholder="e.g. 100" style="width:100%;padding:10px;margin:8px 0 12px;border:1px solid #2d6a4f;border-radius:8px;">
-            <label for="calc-crop" style="font-weight:700; color:#1b4332;">Crop</label>
-            <select id="calc-crop" style="width:100%;padding:10px;margin:8px 0 12px;border:1px solid #2d6a4f;border-radius:8px;">
-              <option value="spinach">Spinach (40 plants / m²)</option>
-              <option value="broccoli">Broccoli (10 plants / m²)</option>
-              <option value="capsicum">Capsicum (8 plants / m²)</option>
-              <option value="cauliflower">Cauliflower (12 plants / m²)</option>
-              <option value="eggplant">Eggplant (7 plants / m²)</option>
-            </select>
-            <label for="calc-density" style="font-weight:700; color:#1b4332;">Planting density (%)</label>
-            <input id="calc-density" type="number" min="50" max="120" value="100" step="1" style="width:100%;padding:10px;margin:8px 0 12px;border:1px solid #2d6a4f;border-radius:8px;">
-            <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;">
-              <input id="calc-area-unit" type="checkbox" />
-              <label for="calc-area-unit" style="font-size:0.85rem;color:#1b4332;">Show in acres (as well)</label>
-            </div>
-
-            <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
-              <button type="button" class="btn btn-earth" id="quick-100">100 seedlings</button>
-              <button type="button" class="btn btn-earth" id="quick-250">250 seedlings</button>
-              <button type="button" class="btn btn-earth" id="quick-500">500 seedlings</button>
-            </div>
-
-            <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
-              <input id="fertilizer-pack" type="checkbox" />
-              <label for="fertilizer-pack" style="font-size:0.85rem;color:#1b4332;">Add fertilizer starter pack (15% extra)</label>
-            </div>
-            <button id="calculate-btn" class="btn-success" style="width:100%;margin-top:10px;">Calculate</button>
-            <div id="calc-result" style="margin-top:12px; color:#2d5a27; font-weight:700;"></div>
-          </div>
-        </aside>
-        <div class="shop-side-story">
-          <article class="shop-side-card spotlight" data-animate="slide-left" data-animate-delay="0.05">
-            <span class="shop-side-kicker">Field planning</span>
-            <h3>Buy with a planting plan, not just a product list.</h3>
-            <p>Use the filter rail for control, then move fast with a recommendation or WhatsApp the team for a cleaner variety mix.</p>
-            <div class="shop-side-highlights">
-              <span>Fast-growing leafy lines</span>
-              <span>Quarter-acre guidance</span>
-              <span>Bulk restock support</span>
-            </div>
-          </article>
-          <article class="shop-side-card" data-animate="fade-scale" data-animate-delay="0.08">
-            <span class="shop-side-kicker">Farmer note</span>
-            <blockquote>“If you are unsure, start with the strongest movers and build from there. We can help refine the mix on WhatsApp.”</blockquote>
-            <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20Help%20me%20refine%20my%20seedling%20mix." class="btn btn-outline" target="_blank">Refine my mix</a>
-          </article>
-          <article class="shop-side-card photo" data-animate="slide-left" data-animate-delay="0.12">
-            <img src="../images/optimized/nursery-banner-1024.jpg" alt="Toree Farm nursery overview">
-          </article>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="quick-order-banner">
-    <div class="container">
-      <h3>Need Seedlings Urgently?</h3>
-      <p>Call or WhatsApp us for same-day pickup and express delivery options within Kericho County.</p>
-      <div class="quick-actions">
-        <a href="tel:+254715108351" class="btn btn-primary">Call Now</a>
-        <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20need%20seedlings%20urgently." class="btn btn-whatsapp" target="_blank">WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="shop-story-strip">
-    <div class="container trust-grid">
-      <article class="trust-card photo" data-animate="slide-right" data-animate-delay="0.05">
-        <img src="../images/optimized/nursery-3-1024.jpg" alt="Seedling process and packaging at Toree Farm">
-        <div class="trust-overlay">
-          <span>Real nursery output</span>
-          <strong>Healthy trays, cleaner handling, better readiness for the field.</strong>
-        </div>
-      </article>
-      <article class="trust-card" data-animate="fade-scale" data-animate-delay="0.09">
-        <span class="trust-kicker">Premium shop rhythm</span>
-        <h3>Seasonal picks, stock-friendly guidance, and one-tap WhatsApp ordering.</h3>
-        <p>Use the filters if you want control, or jump straight into the curated packs if you want a faster decision path.</p>
-      </article>
     </div>
   </section>
 
   <section class="products-section">
     <div class="container">
-      <div class="shop-command-bar">
+      <div class="shop-command-bar shop-command-bar-simple">
         <div>
-          <span class="shop-command-kicker">Shop canvas</span>
-          <h3>Premium trays, seasonal picks, and one-tap ordering.</h3>
+          <span class="shop-command-kicker">Live catalog</span>
+          <h3>Pick your seedlings and checkout.</h3>
         </div>
         <div class="shop-command-pills">
           <span id="shop-signal">Showing all varieties</span>
@@ -277,25 +152,11 @@
   <section class="buy-cta">
     <div class="container">
       <div class="cta-content">
-        <h2>Ready to Grow Your Garden?</h2>
-        <p>Order now and get your seedlings delivered fresh within 24 hours.</p>
+        <h2>Ready to order?</h2>
+        <p>Add seedlings to cart or place the order directly on WhatsApp.</p>
         <div class="cta-buttons">
-          <a href="https://wa.me/254715108351" class="btn btn-primary btn-large" target="_blank">Order via WhatsApp</a>
+          <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20want%20to%20order%20seedlings." class="btn btn-primary btn-large" target="_blank">Order via WhatsApp</a>
           <a href="cart.html" class="btn btn-gold btn-large">View Cart</a>
-        </div>
-        <div class="cta-features">
-          <div class="feature">
-            <span class="icon">Fast</span>
-            <span>Free Delivery</span>
-          </div>
-          <div class="feature">
-            <span class="icon">24h</span>
-            <span>24hr Dispatch</span>
-          </div>
-          <div class="feature">
-            <span class="icon">Care</span>
-            <span>100% Healthy</span>
-          </div>
         </div>
       </div>
     </div>
@@ -406,23 +267,13 @@
       updateShopSignals();
       if (products.length === 0) {
         grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:60px; color:var(--text-light)">
-          <div style="font-size:3rem; margin-bottom:16px">Search</div>
+          <div style="font-size:1rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px">No results</div>
           <h3>No products found</h3>
           <p>Try adjusting your search or filter.</p>
         </div>`;
         return;
       }
       grid.innerHTML = products.map(p => renderProductCard(p, true)).join('');
-      initScrollAnimations();
-    }
-
-    function renderRecommendations() {
-      const recommended = document.getElementById('recommended-products');
-      if (!recommended || !Array.isArray(PRODUCTS)) return;
-      const picks = [...PRODUCTS]
-        .sort((a, b) => b.price - a.price)
-        .slice(0, 3);
-      recommended.innerHTML = picks.map(p => renderProductCard(p, true)).join('');
       initScrollAnimations();
     }
 
@@ -516,7 +367,6 @@
 
     async function initializeShop() {
       await loadProducts();
-      renderRecommendations();
       renderShop();
     }
     initializeShop();

@@ -5922,3 +5922,141 @@ body.page-enter .social-proof-section {
     gap: 10px !important;
   }
 }
+
+/* Leaner shop experience */
+.nav-cart-btn-mobile {
+  display: none !important;
+}
+
+.shop-hero-simple {
+  display: grid;
+  gap: 20px;
+  align-items: center;
+  min-height: 420px;
+}
+
+.shop-utility-strip {
+  padding: 22px 0 0;
+}
+
+.shop-utility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.shop-utility-grid article,
+.shop-toolbar-card,
+.shop-bulk-card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(13, 20, 17, 0.9), rgba(19, 30, 24, 0.96));
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.2);
+}
+
+.shop-utility-grid article {
+  padding: 20px 22px;
+  display: grid;
+  gap: 6px;
+}
+
+.shop-utility-grid strong {
+  color: #fff4df;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+}
+
+.shop-utility-grid span {
+  color: #d7d0c3;
+  font-size: 0.92rem;
+}
+
+.shop-toolbar-section {
+  padding: 32px 0 0;
+}
+
+.shop-toolbar-card {
+  padding: 26px;
+  display: grid;
+  gap: 22px;
+}
+
+.shop-toolbar-copy h2 {
+  margin: 12px 0 10px;
+  color: #fff5e5;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.shop-toolbar-copy p {
+  color: #d8d2c5;
+  max-width: 58ch;
+}
+
+.shop-toolbar-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(240px, 0.8fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.filter-group-inline {
+  margin-bottom: 0;
+}
+
+.filter-group-inline .filter-btn {
+  margin-bottom: 8px;
+}
+
+.shop-bulk-card {
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.shop-bulk-card strong {
+  color: #fff2dd;
+  font-size: 1.05rem;
+}
+
+.shop-bulk-card p {
+  color: #d9d1c3;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.shop-command-bar-simple {
+  margin-top: 10px;
+}
+
+.shop-command-bar-simple h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.buy-cta .cta-content {
+  max-width: 540px;
+}
+
+.buy-cta .cta-content p {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+  .nav-cart-btn {
+    display: none !important;
+  }
+
+  .nav-cart-btn-mobile {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shop-utility-grid,
+  .shop-toolbar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-toolbar-card {
+    padding: 22px;
+  }
+}
