@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://toreefarm.com/sitemap.xml
+IndexNow: https://toreefarm.com/8f3b2c7a19d44c4a9e0d7b5f2a6143ce.txt

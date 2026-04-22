@@ -6032,6 +6032,73 @@ body.page-enter .social-proof-section {
   font-size: clamp(1.4rem, 2.5vw, 2rem);
 }
 
+.shop-premium-card {
+  border: 1px solid rgba(220, 192, 136, 0.14);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
+}
+
+.shop-premium-card .product-body {
+  display: grid;
+  gap: 12px;
+}
+
+.shop-premium-card .product-body p {
+  min-height: 3.3em;
+}
+
+.product-store-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.product-store-status {
+  color: #eef4df;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.product-store-unit {
+  color: #d6ccb9;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.shop-premium-card .price-tag {
+  min-width: 128px;
+  padding: 10px 14px;
+  border-radius: 16px;
+}
+
+.shop-premium-card .price-tag span {
+  font-size: 1.12rem;
+}
+
+.shop-premium-card .add-to-cart-btn {
+  min-height: 46px;
+  padding: 0 18px;
+  font-size: 0.92rem;
+}
+
+.product-card-actions {
+  margin-top: 4px;
+}
+
+.product-link-btn.primary {
+  background: linear-gradient(135deg, #1e6b52, #25785c);
+  border-color: rgba(95, 194, 145, 0.22);
+}
+
+.product-link-btn.whatsapp.primary {
+  color: #f5efe2;
+}
+
 .buy-cta .cta-content {
   max-width: 540px;
 }
@@ -6058,5 +6125,19 @@ body.page-enter .social-proof-section {
 
   .shop-toolbar-card {
     padding: 22px;
+  }
+
+  .shop-premium-card .product-body p {
+    min-height: 0;
+  }
+
+  .product-store-line,
+  .shop-premium-card .product-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .product-card-actions {
+    grid-template-columns: 1fr;
   }
 }

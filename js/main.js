@@ -36,6 +36,16 @@ function getShopPageHref() {
   return getPathPrefix() ? 'shop.html' : 'pages/shop.html';
 }
 
+const INDEXNOW_KEY = '8f3b2c7a19d44c4a9e0d7b5f2a6143ce';
+
+function notifyIndexNow(urls = [window.location.href]) {
+  const isLiveSite = window.location.hostname === 'toreefarm.com' || window.location.hostname === 'www.toreefarm.com';
+  if (!isLiveSite || !Array.isArray(urls) || urls.length === 0) return;
+
+  const endpoint = `https://api.indexnow.org/indexnow?url=${encodeURIComponent(urls[0])}&key=${INDEXNOW_KEY}`;
+  fetch(endpoint, { method: 'GET', mode: 'no-cors', keepalive: true }).catch(() => {});
+}
+
 function formatCurrency(value) {
   return `KES ${Number(value).toFixed(2)}`;
 }
@@ -557,6 +567,7 @@ function renderProductCard(product, isShopPage = false) {
   const stockTone = getStockTone(product);
   const stockLabel = getStockLabel(product);
   const priceLabel = Number(product.price) <= 2.5 ? 'Starter pack' : Number(product.price) >= 5 ? 'Premium tray' : 'Farmer pick';
+  const stockStatus = product.stock || 'Available now';
   return `
     <div class="product-card ${isShopPage ? 'shop-premium-card' : ''}" data-animate="slide-left" data-animate-delay="0.06" data-category="${product.category}" data-id="${product.id}">
       <div class="product-img">
@@ -572,6 +583,7 @@ function renderProductCard(product, isShopPage = false) {
         </div>
         <h3>${product.name}</h3>
         <p>${product.description}</p>
+        ${isShopPage ? `<div class="product-store-line"><span class="product-store-status">${stockStatus}</span><span class="product-store-unit">Per seedling</span></div>` : ''}
         <div class="product-meta-grid">
           <div><strong>Growth</strong><span>${product.growth || 'Healthy cycle'}</span></div>
           <div><strong>Spacing</strong><span>${product.spacing || 'Standard spacing'}</span></div>
@@ -585,7 +597,7 @@ function renderProductCard(product, isShopPage = false) {
           <div class="price-tag"><span>${formatCurrency(product.price)}</span><small>/ seedling</small></div>
           <button class="add-to-cart-btn" onclick="addToCartFromCard(${product.id})">Add to cart</button>
         </div>
-        ${isShopPage ? `<div class="product-card-actions"><button class="product-link-btn" onclick="openModal(PRODUCTS.find(p => p.id === ${product.id}))">View details</button><a class="product-link-btn whatsapp" href="https://wa.me/254715108351?text=${encodeURIComponent(`Hello Toree Farm, I would like ${product.name}.`)}" target="_blank">WhatsApp</a></div>` : ''}
+        ${isShopPage ? `<div class="product-card-actions"><a class="product-link-btn whatsapp primary" href="https://wa.me/254715108351?text=${encodeURIComponent(`Hello Toree Farm, I would like ${product.name}.`)}" target="_blank">Buy on WhatsApp</a><button class="product-link-btn" onclick="openModal(PRODUCTS.find(p => p.id === ${product.id}))">View details</button></div>` : ''}
       </div>
     </div>`;
 }
@@ -699,6 +711,10 @@ document.addEventListener('DOMContentLoaded', () => {
       loadWeatherData();
     }
   });
+
+  if (window.location.search.includes('indexnow=1')) {
+    notifyIndexNow();
+  }
 });
 
 // Export for use in page scripts
@@ -735,6 +751,7 @@ window.addToCartFromCard = addToCartFromCard;
   window.renderPickupCard = renderPickupCard;
   window.filterProducts = filterProducts;
   window.loadWeatherData = loadWeatherData;
+  window.notifyIndexNow = notifyIndexNow;
 
 // ---- SEARCH AND FILTER FUNCTIONS ----
 function filterProducts() {
