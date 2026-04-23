@@ -93,7 +93,7 @@ const GALLERY = [
   { id: 4, img: 'nursery-2', caption: 'Healthy seedlings ready for market', filter: 'varieties' },
   { id: 5, img: 'nursery-3', caption: 'Top-quality vegetables from Toree Farm', filter: 'process' },
   { id: 6, img: 'nursery-banner', caption: 'Toree Farm\'s premium seedling collection', filter: 'nursery' },
-  { id: 7, img: 'spinach', caption: 'Fresh spinach seedlings ready for planting', filter: 'varieties' },
+  { id: 7, img: 'spinach', caption: 'Fresh spinach seedlings ready for planning and transplanting', filter: 'varieties' },
   { id: 8, img: 'product-broccoli', caption: 'Premium broccoli seedlings with strong roots', filter: 'varieties' },
   { id: 9, img: 'product-cauliflower', caption: 'Healthy cauliflower seedlings for optimal growth', filter: 'varieties' },
   { id: 10, img: 'capsicum hoho', caption: 'Sweet capsicum (hoho) seedlings in our nursery', filter: 'varieties' },
@@ -104,6 +104,22 @@ const GALLERY = [
   { id: 15, img: '4', caption: 'Freshly harvested vegetables from our farm', filter: 'varieties' },
   { id: 16, img: '5', caption: 'Nursery greenhouse with controlled environment', filter: 'nursery' },
   { id: 17, img: '6', caption: 'Professional seedling packaging for delivery', filter: 'process' },
+  { id: 18, img: '7', caption: 'Real nursery seedlings lined up for healthy field starts', filter: 'nursery' },
+  { id: 19, img: '8', caption: 'Protected greenhouse rows with strong young seedlings', filter: 'nursery' },
+  { id: 20, img: '9', caption: 'Fresh nursery seedlings arranged for customer pickup', filter: 'varieties' },
+  { id: 21, img: '10', caption: 'Dense seedling beds showing even growth and vigor', filter: 'nursery' },
+  { id: 22, img: '11', caption: 'Leafy seedlings raised under careful nursery management', filter: 'varieties' },
+  { id: 23, img: '12', caption: 'Healthy seedlings at a stage ideal for farmer planning', filter: 'process' },
+  { id: 24, img: '13', caption: 'Protected seedling production inside the nursery', filter: 'nursery' },
+  { id: 25, img: '14', caption: 'Strong mixed seedlings prepared for reliable field establishment', filter: 'varieties' },
+  { id: 26, img: '15', caption: 'Customer-ready seedlings displayed from the real farm', filter: 'process' },
+  { id: 27, img: '16', caption: 'Our nursery space stocked with healthy seedling lines', filter: 'nursery' },
+  { id: 28, img: '17', caption: 'A closer look at real Toree Farm seedling quality', filter: 'varieties' },
+  { id: 29, img: '18', caption: 'Seedlings grouped neatly for faster buying and collection', filter: 'process' },
+  { id: 30, img: '19', caption: 'More of the nursery in active daily production', filter: 'nursery' },
+  { id: 31, img: '20', caption: 'Seedlings grown with steady care and clean presentation', filter: 'varieties' },
+  { id: 32, img: '21', caption: 'A real farm view showing healthy nursery output', filter: 'process' },
+  { id: 33, img: '22', caption: 'Extra nursery scenes from Toree Farm operations', filter: 'nursery' },
 ];
 
 function renderGalleryItem(item) {
@@ -566,7 +582,7 @@ function renderProductCard(product, isShopPage = false) {
   const seasonTag = getSeasonTag(product);
   const stockTone = getStockTone(product);
   const stockLabel = getStockLabel(product);
-  const priceLabel = Number(product.price) <= 2.5 ? 'Starter pack' : Number(product.price) >= 5 ? 'Premium tray' : 'Farmer pick';
+  const priceLabel = Number(product.price) <= 2.5 ? 'Starter pack' : Number(product.price) >= 5 ? 'Premium line' : 'Farmer pick';
   const stockStatus = product.stock || 'Available now';
   return `
     <div class="product-card ${isShopPage ? 'shop-premium-card' : ''}" data-animate="slide-left" data-animate-delay="0.06" data-category="${product.category}" data-id="${product.id}">
