@@ -126,20 +126,20 @@ function renderGalleryItem(item) {
   const imgBase = `../images/optimized/${item.img}`;
   // Handle numbered images (1, 2, 3, etc.) which are .jpeg files
   const isNumbered = /^\d+$/.test(item.img);
-  const webpSrc = isNumbered ?
-    `${imgBase}.jpeg 640w` :
-    `${imgBase}-640.webp 640w, ${imgBase}-1024.webp 1024w`;
   const jpgSrc = isNumbered ?
     `${imgBase}.jpeg 640w` :
     `${imgBase}-640.jpg 640w, ${imgBase}-1024.jpg 1024w`;
   const imgSrc = isNumbered ? `${imgBase}.jpeg` : `${imgBase}-640.jpg`;
   const lightboxSrc = isNumbered ? `${imgBase}.jpeg` : `${imgBase}-1024.jpg`;
+  const pictureSources = isNumbered
+    ? `<source srcset="${jpgSrc}" type="image/jpeg">`
+    : `<source srcset="${imgBase}-640.webp 640w, ${imgBase}-1024.webp 1024w" type="image/webp">
+        <source srcset="${jpgSrc}" type="image/jpeg">`;
 
   return `
     <div class="gallery-item" data-filter="${item.filter}" data-animate="fade-in" role="button" tabindex="0" aria-label="${item.caption}" onclick="openLightbox('${lightboxSrc}', event)" onkeydown="handleGalleryKeydown(event, '${lightboxSrc}')">
       <picture>
-        <source srcset="${webpSrc}" type="image/webp">
-        <source srcset="${jpgSrc}" type="image/jpeg">
+        ${pictureSources}
         <img src="${imgSrc}" alt="${item.caption}" loading="lazy" decoding="async">
       </picture>
       <div class="gallery-overlay">
@@ -739,12 +739,24 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) closeLightbox(e);
     });
+    ['mousedown', 'mouseup', 'touchstart', 'touchend'].forEach((eventName) => {
+      lightbox.addEventListener(eventName, (e) => {
+        if (e.target === lightbox) e.stopPropagation();
+      }, { passive: false });
+    });
   }
   if (lightboxImg) {
-    lightboxImg.addEventListener('click', (e) => e.stopPropagation());
+    ['click', 'mousedown', 'mouseup', 'touchstart', 'touchend'].forEach((eventName) => {
+      lightboxImg.addEventListener(eventName, (e) => e.stopPropagation(), { passive: false });
+    });
   }
   if (lightboxClose) {
-    lightboxClose.addEventListener('click', (e) => closeLightbox(e));
+    ['click', 'mousedown', 'mouseup', 'touchstart', 'touchend'].forEach((eventName) => {
+      lightboxClose.addEventListener(eventName, (e) => {
+        e.stopPropagation();
+        if (eventName === 'click' || eventName === 'touchend') closeLightbox(e);
+      }, { passive: false });
+    });
   }
   // Close lightbox on ESC
   document.addEventListener('keydown', e => {
