@@ -136,11 +136,11 @@ function renderGalleryItem(item) {
   const lightboxSrc = isNumbered ? `${imgBase}.jpeg` : `${imgBase}-1024.jpg`;
 
   return `
-    <div class="gallery-item" data-filter="${item.filter}" data-animate="fade-in">
+    <div class="gallery-item" data-filter="${item.filter}" data-animate="fade-in" role="button" tabindex="0" aria-label="${item.caption}" onclick="openLightbox('${lightboxSrc}', event)" onkeydown="handleGalleryKeydown(event, '${lightboxSrc}')">
       <picture>
         <source srcset="${webpSrc}" type="image/webp">
         <source srcset="${jpgSrc}" type="image/jpeg">
-        <img src="${imgSrc}" alt="${item.caption}" onclick="openLightbox('${lightboxSrc}')">
+        <img src="${imgSrc}" alt="${item.caption}" loading="lazy" decoding="async">
       </picture>
       <div class="gallery-overlay">
         <p>${item.caption}</p>
@@ -153,6 +153,7 @@ function renderGallery() {
   const grid = document.getElementById('gallery-grid');
   if (!grid) return;
   grid.innerHTML = GALLERY.map(renderGalleryItem).join('');
+  initScrollAnimations();
   updateGalleryNavigation();
 }
 
@@ -250,7 +251,11 @@ function filterGallery(filterType) {
   updateGalleryNavigation();
 }
 
-function openLightbox(src) {
+function openLightbox(src, event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   if (lightbox && lightboxImg) {
@@ -260,11 +265,27 @@ function openLightbox(src) {
   }
 }
 
-function closeLightbox() {
+function closeLightbox(event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
   const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
   if (lightbox) {
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
+    if (lightboxImg) {
+      window.setTimeout(() => {
+        if (!lightbox.classList.contains('open')) lightboxImg.src = '';
+      }, 180);
+    }
+  }
+}
+
+function handleGalleryKeydown(event, src) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    openLightbox(src, event);
   }
 }
 
@@ -711,6 +732,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.getElementById('next-btn');
   if (prevBtn) prevBtn.addEventListener('click', prevGalleryPage);
   if (nextBtn) nextBtn.addEventListener('click', nextGalleryPage);
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.querySelector('.lightbox-close');
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox(e);
+    });
+  }
+  if (lightboxImg) {
+    lightboxImg.addEventListener('click', (e) => e.stopPropagation());
+  }
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', (e) => closeLightbox(e));
+  }
   // Close lightbox on ESC
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeLightbox();
@@ -749,6 +784,7 @@ window.renderGallery = renderGallery;
 window.filterGallery = filterGallery;
 window.openLightbox = openLightbox;
 window.closeLightbox = closeLightbox;
+window.handleGalleryKeydown = handleGalleryKeydown;
 window.updateGalleryNavigation = updateGalleryNavigation;
 window.showGalleryPage = showGalleryPage;
 window.nextGalleryPage = nextGalleryPage;
