@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery - Toree Farm & Nursery Ltd</title>
-  <meta name="description" content="Browse the Toree Farm gallery to see nursery operations, healthy seedlings, greenhouse spaces, and crop varieties.">
+  <meta name="description" content="Browse real Toree Farm nursery photos showing seedlings, greenhouse work, and nursery operations in Litein.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://toreefarm.com/pages/gallery.html">
   <meta property="og:title" content="Gallery | Toree Farm & Nursery Ltd">
-  <meta property="og:description" content="See nursery photos, seedlings, crop varieties, and greenhouse operations from Toree Farm.">
+  <meta property="og:description" content="See real Toree Farm nursery photos, seedlings, and greenhouse operations from Litein.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toreefarm.com/pages/gallery.html">
-  <meta property="og:image" content="https://toreefarm.com/images/optimized/gallery-1-1024.jpg">
+  <meta property="og:image" content="https://toreefarm.com/images/optimized/8.jpeg">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../images/optimized/logo-icon-640.webp" type="image/webp">
   <script type="application/ld+json">
@@ -20,11 +20,11 @@
       "@type": "CollectionPage",
       "name": "Toree Farm Gallery",
       "url": "https://toreefarm.com/pages/gallery.html",
-      "description": "Photo gallery of Toree Farm nursery operations, seedlings, and crop varieties."
+      "description": "Real nursery and seedling photo gallery for Toree Farm & Nursery Ltd."
     }
   </script>
 </head>
-<body>
+<body class="gallery-page">
   <div class="agricultural-elements" aria-hidden="true">
     <div class="leaf">*</div>
     <div class="leaf">*</div>
@@ -68,85 +68,71 @@
     </div>
   </nav>
 
-  <section class="page-hero">
+  <section class="page-hero gallery-hero">
     <div class="container">
-      <h1>Our Gallery</h1>
-      <p>See the quality and scale of our nursery operations through our varieties, processes, and greenhouse spaces.</p>
       <div class="breadcrumb">
         <a href="../index.html">Home</a><span>&gt;</span>
         <span style="color:var(--gold-light)">Gallery</span>
       </div>
+      <h1>Real Photos From Toree Farm</h1>
+      <p>Browse actual nursery scenes, greenhouse work, and healthy seedlings from our farm in Litein.</p>
     </div>
   </section>
 
-  <section class="gallery-section">
+  <section class="farm-gallery-section">
     <div class="container">
-      <div class="gallery-header">
-        <div class="section-header fade-in">
-          <h1 class="section-title">Inside Toree Farm</h1>
-          <div class="gold-line"></div>
-          <p class="section-subtitle">A cleaner look at how we grow, prepare, and present premium seedlings for serious growers.</p>
+      <div class="farm-gallery-intro">
+        <div>
+          <span class="farm-gallery-kicker">Real nursery moments</span>
+          <h2>Clean, simple, and focused on the photos.</h2>
+          <p>Use the filters below or just scroll through all the images. Tap any photo to open the full view and move between images safely.</p>
         </div>
-
-        <div class="gallery-filters fade-in">
-          <button class="gallery-filter-btn active" data-filter="all">
-            <span class="filter-icon">All</span>
-            <span>All Photos</span>
-          </button>
-          <button class="gallery-filter-btn" data-filter="nursery">
-            <span class="filter-icon">Nur</span>
-            <span>Nursery Facilities</span>
-          </button>
-          <button class="gallery-filter-btn" data-filter="varieties">
-            <span class="filter-icon">Var</span>
-            <span>Seedling Varieties</span>
-          </button>
-          <button class="gallery-filter-btn" data-filter="process">
-            <span class="filter-icon">Ops</span>
-            <span>Our Process</span>
-          </button>
-        </div>
-
-        <div class="gallery-stats">
-          <div class="stat-item">
-            <span class="stat-number">33</span>
-            <span class="stat-label">Photos</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">50K+</span>
-            <span class="stat-label">Seedlings Monthly</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">98%</span>
-            <span class="stat-label">Success Rate</span>
-          </div>
+        <div class="farm-gallery-stats">
+          <article>
+            <strong>16</strong>
+            <span>Uploaded photos</span>
+          </article>
+          <article>
+            <strong>100%</strong>
+            <span>Real Toree Farm images</span>
+          </article>
+          <article>
+            <strong>Mon-Sat</strong>
+            <span>Open 9am - 5pm</span>
+          </article>
         </div>
       </div>
 
-      <div class="gallery-grid" id="gallery-grid"></div>
-
-      <div class="gallery-nav">
-        <button class="nav-btn" id="prev-btn" disabled>Previous</button>
-        <div class="page-indicator">
-          <span id="current-page">1</span> of <span id="total-pages">1</span>
-        </div>
-        <button class="nav-btn" id="next-btn">Next</button>
+      <div class="farm-gallery-filters" aria-label="Gallery filters">
+        <button type="button" class="farm-gallery-filter active" data-filter="all">All Photos</button>
+        <button type="button" class="farm-gallery-filter" data-filter="nursery">Nursery</button>
+        <button type="button" class="farm-gallery-filter" data-filter="greenhouse">Greenhouse</button>
+        <button type="button" class="farm-gallery-filter" data-filter="showcase">Showcase</button>
       </div>
+
+      <div class="farm-gallery-grid" id="farm-gallery-grid" aria-live="polite"></div>
     </div>
   </section>
 
-  <div class="lightbox" id="lightbox">
-    <button type="button" class="lightbox-close" aria-label="Close image viewer" onclick="closeLightbox(event)">X</button>
-    <img id="lightbox-img" src="" alt="Gallery image view">
+  <div class="farm-lightbox" id="farm-lightbox" aria-hidden="true">
+    <div class="farm-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+      <button type="button" class="farm-lightbox-close" id="farm-lightbox-close" aria-label="Close image viewer">×</button>
+      <button type="button" class="farm-lightbox-nav prev" id="farm-lightbox-prev" aria-label="Previous image">‹</button>
+      <figure class="farm-lightbox-figure">
+        <img id="farm-lightbox-image" src="" alt="">
+        <figcaption id="farm-lightbox-caption"></figcaption>
+      </figure>
+      <button type="button" class="farm-lightbox-nav next" id="farm-lightbox-next" aria-label="Next image">›</button>
+    </div>
   </div>
 
   <section class="cta-banner">
     <div class="container">
-      <h2>Like What You See?</h2>
-      <p>Order your seedlings today and experience Toree Farm quality firsthand.</p>
+      <h2>Seen Something You Like?</h2>
+      <p>Move straight from the gallery to ordering your seedlings.</p>
       <div class="cta-buttons">
-        <a href="shop.html" class="btn btn-primary">Shop Now</a>
-        <a href="https://wa.me/254715108351" class="btn btn-whatsapp" target="_blank">WhatsApp Us</a>
+        <a href="shop.html" class="btn btn-primary">Shop Seedlings</a>
+        <a href="https://wa.me/254715108351?text=Hello%20Toree%20Farm!%20I%20have%20seen%20your%20gallery%20and%20would%20like%20to%20order%20seedlings." class="btn btn-whatsapp" target="_blank">Order on WhatsApp</a>
       </div>
     </div>
   </section>
@@ -165,7 +151,7 @@
               <span class="tagline" style="color:var(--gold)">Home of Quality Seedlings</span>
             </div>
           </a>
-          <p>Premium vegetable seedlings in Litein Town.</p>
+          <p>Premium vegetable seedlings in Litein Town, Kericho County.</p>
           <div class="footer-social">
             <a href="https://facebook.com" class="social-link" target="_blank">Fb</a>
             <a href="https://wa.me/254715108351" class="social-link" target="_blank">Wa</a>
@@ -194,5 +180,6 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script src="../js/gallery-page.js"></script>
 </body>
 </html>
